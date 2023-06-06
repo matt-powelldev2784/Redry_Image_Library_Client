@@ -8,7 +8,7 @@ module.exports = {
         primaryGreen: '#00B200',
         lightGrey: '#EEEEEE',
         darkGrey: ' #D9D9D9',
-        quaternaryGrey: '#cfd7d7',
+        darkblack: '#161616',
       },
       screens: {
         sm: '0px',
