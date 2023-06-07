@@ -3,13 +3,13 @@ export const Hero = () => {
     <section className="relative flex h-screen min-h-[800px] w-screen min-w-[320px] items-center justify-center">
       <img
         src="/world_green_light_extended4.jpg"
-        alt="Gareen leaves background"
+        alt="Green light bulb background"
         className="absolute h-full w-full object-cover"
       />
       <div className="z-20 flex w-full flex-col items-center justify-center lg:mx-16 lg:w-[40rem]">
         <img
           src="/re_dry_logo_green_slogan.svg"
-          alt=""
+          alt="Redry logo with slogan"
           className="m-4 h-20 md:h-24"
         />
         <p className="mt-8 text-center text-lg font-semibold md:text-3xl">
