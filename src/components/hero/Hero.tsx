@@ -1,9 +1,9 @@
 export const Hero = () => {
   return (
-    <section className="relative flex h-screen w-screen min-w-[320px] items-center justify-center">
+    <section className="relative flex h-screen min-h-[800px] w-screen min-w-[320px] items-center justify-center">
       <img
         src="/world_green_light_extended4.jpg"
-        alt="Green leaves background"
+        alt="Gareen leaves background"
         className="absolute h-full w-full object-cover"
       />
       <div className="z-20 flex w-full flex-col items-center justify-center lg:mx-16 lg:w-[40rem]">
