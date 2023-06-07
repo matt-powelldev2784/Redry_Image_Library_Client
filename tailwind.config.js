@@ -4,11 +4,14 @@ module.exports = {
 
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Poppins"', 'sans-serif'],
+      },
       colors: {
         primaryGreen: '#00B200',
         lightGrey: '#EEEEEE',
         darkGrey: ' #D9D9D9',
-        darkblack: '#161616',
+        darkBlack: '#161616',
       },
       screens: {
         sm: '0px',
