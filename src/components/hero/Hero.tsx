@@ -1,3 +1,5 @@
+import { SearchInput } from '../utils/utilsIndex'
+
 export const Hero = () => {
   return (
     <section className="relative flex h-screen min-h-[800px] w-screen min-w-[320px] items-center justify-center">
@@ -19,10 +21,10 @@ export const Hero = () => {
           Your destination for stunning, high-quality images. Explore our
           collection and find the perfect visuals for your next project.
         </p>
-        <input
-          className="mt-12 w-11/12 rounded-xl px-3 py-2 text-center text-base md:w-1/2 lg:w-[28rem]"
-          placeholder="Search Image Library"
-        ></input>
+        <SearchInput
+          optionalClassNames="mt-12 w-11/12 rounded-xl px-3 py-2 text-center text-base md:w-1/2 lg:w-[28rem]"
+          placeholderText="Search Image Library"
+        ></SearchInput>
         <button className="my-2 mt-4 rounded-xl border-2 border-darkBlack bg-primaryGreen px-4 py-1 text-xl font-semibold text-darkBlack lg:w-[28rem]">
           Search
         </button>
