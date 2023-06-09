@@ -1,5 +1,4 @@
 import { apiCall } from './apiCall'
-import { KeyboardEvent } from 'react'
 
 interface HandleSearchProps {
   key?: string

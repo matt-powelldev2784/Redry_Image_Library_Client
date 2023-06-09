@@ -1,4 +1,4 @@
-import { SearchInput } from '../utils/utilsIndex'
+import { SearchInput } from '../ui/SearchInput'
 import { handleSearch } from '../utils/handleSerach'
 
 export const Hero = () => {
