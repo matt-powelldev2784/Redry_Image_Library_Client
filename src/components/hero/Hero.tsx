@@ -1,4 +1,5 @@
 import { SearchInput } from '../utils/utilsIndex'
+import { handleSearch } from '../utils/handleSerach'
 
 export const Hero = () => {
   return (
@@ -25,7 +26,10 @@ export const Hero = () => {
           optionalClassNames="mt-12 w-11/12 rounded-xl px-3 py-2 text-center text-base md:w-1/2 lg:w-[28rem]"
           placeholderText="Search Image Library"
         ></SearchInput>
-        <button className="my-2 mt-4 rounded-xl border-2 border-darkBlack bg-primaryGreen px-4 py-1 text-xl font-semibold text-darkBlack lg:w-[28rem]">
+        <button
+          onClick={handleSearch}
+          className="my-2 mt-4 rounded-xl border-2 border-darkBlack bg-primaryGreen px-4 py-1 text-xl font-semibold text-darkBlack lg:w-[28rem]"
+        >
           Search
         </button>
         {/* <p className="text-3xl sm:text-red-500 md:text-blue-500 lg:text-orange-500">

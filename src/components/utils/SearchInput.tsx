@@ -1,4 +1,4 @@
-import React from 'react'
+import { handleSearch } from './handleSerach'
 
 interface SearchInputProps {
   optionalClassNames?: string
@@ -13,6 +13,7 @@ export const SearchInput = ({
     <input
       className={`${optionalClassNames}`}
       placeholder={placeholderText}
+      onKeyDown={handleSearch}
     ></input>
   )
 }
