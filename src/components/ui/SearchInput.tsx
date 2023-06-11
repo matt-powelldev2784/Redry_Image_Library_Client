@@ -1,4 +1,4 @@
-import { handleSearch } from '../utils/handleSerach'
+import { handleSearch } from './handleSearch'
 
 interface SearchInputProps {
   optionalClassNames?: string

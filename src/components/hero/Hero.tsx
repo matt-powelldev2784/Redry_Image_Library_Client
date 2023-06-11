@@ -1,5 +1,5 @@
 import { SearchInput } from '../ui/SearchInput'
-import { handleSearch } from '../utils/handleSerach'
+import { handleSearch } from '../ui/handleSearch'
 
 export const Hero = () => {
   return (
