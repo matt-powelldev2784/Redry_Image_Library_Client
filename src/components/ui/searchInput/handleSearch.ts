@@ -1,4 +1,4 @@
-import { apiCall } from '../utils/apiCall'
+import { apiCall } from '../../utils/apiCall'
 
 interface HandleSearchProps {
   key?: string
@@ -16,6 +16,6 @@ export const handleSearch = async (event: HandleSearchProps) => {
   }
 
   if (event.key === 'Enter' || event.type === 'click') {
-    getSearchResults()
+    return getSearchResults()
   }
 }
