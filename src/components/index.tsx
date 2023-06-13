@@ -1,4 +1,5 @@
 export { Hero } from './hero/Hero'
 export { Nav } from './navBar/Nav'
+export { SearchResultsNav } from './navBar/SearchResultsNav'
 export { HomeContent } from './homeContent/HomeContent'
 export { SearchResults } from './searchResults/SearchResults'

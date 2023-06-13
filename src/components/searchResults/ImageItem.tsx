@@ -25,7 +25,7 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
           <img
             className="w-12"
             src="/re_dry_flower_circle_black.svg"
-            alt={description}
+            alt="Redry logo"
           />
           <div className="flex flex-col text-slate-200">
             <p className="text-xs ">Uploaded by:</p>

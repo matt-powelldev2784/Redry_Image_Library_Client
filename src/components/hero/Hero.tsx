@@ -26,7 +26,7 @@ export const Hero = () => {
         </h2>
 
         <SearchInput
-          optionalClassNames="mt-12 w-11/12 rounded-xl px-3 py-2 text-center text-base md:w-1/2 lg:w-[28rem]"
+          optionalClassNames="mt-12 w-11/12 rounded-xl px-3 py-2 text-center text-base md:w-1/2 lg:w-[28rem] outline-none border-2 focus:border-slate-500"
           placeholderText="Search Image Library"
         />
 
