@@ -6,10 +6,10 @@ interface ImageItemProps {
 }
 // TODO
 //----------------------------------------------------------------------------------
-const dummyOnClick = (event: React.MouseEvent) => {}
+const onDownloadClick = (event: React.MouseEvent) => {}
 
 export const ImageItem = ({ imageData }: ImageItemProps) => {
-  const { _id, path, thumbnailPath, uploadedBy, description, tags } = imageData
+  const { path, thumbnailPath, uploadedBy, description } = imageData
 
   return (
     <article className="group relative flex h-[250px] w-11/12 items-end rounded-xl md:h-[230px] md:w-[360px] lg:h-[250px] lg:w-[460px] ">
@@ -27,14 +27,14 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
             src="/re_dry_flower_circle_black.svg"
             alt={description}
           />
-          <p className="text-slate-200">
-            Upload By:{' '}
-            <span className="font-large">{uploadedBy.toUpperCase()}</span>
-          </p>
+          <div className="flex flex-col text-slate-200">
+            <p className="text-xs ">Uploaded by:</p>
+            <p className="lg:text-lg ">{uploadedBy.toUpperCase()}</p>
+          </div>
         </div>
         <button
-          onClick={dummyOnClick}
-          className="rounded-lg bg-slate-200 p-2 hover:bg-slate-50"
+          onClick={onDownloadClick}
+          className="md:font-sm rounded-lg bg-slate-200 p-2 hover:bg-slate-50"
         >
           Download
         </button>
