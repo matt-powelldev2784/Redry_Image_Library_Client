@@ -1,9 +1,10 @@
 import { apiCall } from '../../components/utils/apiCall'
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { ImageData } from '../../TS/interfaces'
 
 export interface DataState {
   isLoading: boolean
-  imageData: []
+  imageData: ImageData[]
   totalImagesFound: string
   totalImagesReturned: string
 }

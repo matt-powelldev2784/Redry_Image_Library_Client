@@ -3,3 +3,19 @@ export interface ApiOptions {
   route: string
   body?: any
 }
+export interface apiResponse {
+  success: boolean
+  status: number
+  msg: string
+  data?: any
+}
+
+export interface ImageData {
+  _id: string
+  path: string
+  thumbnailPath: string
+  uploadedBy: string
+  description: string
+  tags: []
+  __v?: any
+}

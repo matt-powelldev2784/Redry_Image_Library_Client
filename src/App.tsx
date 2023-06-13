@@ -1,4 +1,4 @@
-import { Hero, Nav, HomeContent } from './components'
+import { Hero, Nav, SearchResults } from './components'
 import { store } from './redux/store/store'
 import { Provider } from 'react-redux'
 
@@ -8,7 +8,7 @@ function App() {
       <div className="App">
         <Nav />
         <Hero />
-        <HomeContent />
+        <SearchResults />
       </div>
     </Provider>
   )
