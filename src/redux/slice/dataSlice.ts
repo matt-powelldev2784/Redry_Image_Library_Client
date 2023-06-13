@@ -15,18 +15,24 @@ const initialState: DataState = {
   totalImagesReturned: '',
 }
 
-interface HandleSearchProps {
-  key?: string
-  type: string
-}
-
 export const handleSearch = createAsyncThunk(
   'data/handleSearch',
-  async (event: HandleSearchProps): Promise<any> => {
+  async (searchText: string): Promise<any> => {
+    const searchWordArray = searchText.split(' ')
+    let searchQuery = ''
+
+    for (const word of searchWordArray) {
+      const query = `tags=${word}&`
+      const newQuery = searchQuery.concat(query)
+      searchQuery = newQuery
+    }
+
+    searchQuery = searchQuery.slice(0, -1)
+
     try {
       const response = await apiCall({
         httpMethod: 'GET',
-        route: `search-images?tags=man&tags=dog`,
+        route: `search-images?${searchQuery}`,
       })
       const searchResults = response.data
       console.log('searchResults', searchResults)

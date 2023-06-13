@@ -1,3 +1,4 @@
+import { useState, ChangeEvent } from 'react'
 import { handleSearch } from '../../../redux/slice/dataSlice'
 import { useAppDispatch } from '../../../redux/hooks/reduxHooks'
 
@@ -6,20 +7,23 @@ interface SearchInputProps {
   placeholderText: string
 }
 
-interface HandleSearchProps {
-  key?: string
-  type: string
-}
-
 export const SearchInput = ({
   optionalClassNames,
   placeholderText,
 }: SearchInputProps) => {
+  const [searchText, setSearchText] = useState('')
   const dispatch = useAppDispatch()
 
-  const dispatchHandleSerach = (event: HandleSearchProps) => {
+  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const searchText = e.target.value
+    setSearchText(searchText)
+  }
+
+  const dispatchHandleSerach = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
     if (event.key === 'Enter') {
-      dispatch(handleSearch(event))
+      dispatch(handleSearch(searchText))
     }
   }
 
@@ -28,6 +32,7 @@ export const SearchInput = ({
       className={`${optionalClassNames}`}
       placeholder={placeholderText}
       onKeyDown={dispatchHandleSerach}
+      onChange={onInputChange}
     ></input>
   )
 }

@@ -4,7 +4,6 @@ import { ApiOptions } from '../../TS/interfaces'
 export const apiCall = async (apiOptions: ApiOptions) => {
   const { httpMethod, route, body } = apiOptions
   const BASE_URL = process.env.REACT_APP_BASE_URL
-  console.log('BASE_URL', BASE_URL)
 
   try {
     let response: any
