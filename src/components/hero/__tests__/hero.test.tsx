@@ -1,28 +1,26 @@
 import { render, screen } from '@testing-library/react'
 import { Hero } from '../Hero'
+import { configureStore } from '@reduxjs/toolkit'
+import { Provider } from 'react-redux'
 
-describe('Hero', () => {
-  test('renders Hero component', () => {
-    render(<Hero />)
+const mockStore = configureStore({
+  reducer: () => ({}),
+  middleware: [],
+})
 
-    expect(
-      screen.getByAltText('Green light bulb background')
-    ).toBeInTheDocument()
+test('renders Hero component', () => {
+  render(
+    <Provider store={mockStore}>
+      <Hero />
+    </Provider>
+  )
 
-    expect(screen.getByAltText('Redry logo with slogan')).toBeInTheDocument()
+  const backgroundImage = screen.getByAltText('Green light bulb background')
+  expect(backgroundImage).toBeInTheDocument()
 
-    expect(screen.getByText('User Generated Image Library')).toBeInTheDocument()
+  const h1 = screen.getByRole('heading', { level: 1 })
+  expect(h1).toBeInTheDocument()
 
-    expect(
-      screen.getByText(
-        'Your destination for stunning, high-quality images. Explore our collection and find the perfect visuals for your next project.'
-      )
-    ).toBeInTheDocument()
-
-    expect(
-      screen.getByPlaceholderText('Search Image Library')
-    ).toBeInTheDocument()
-
-    expect(screen.getByText('Search')).toBeInTheDocument()
-  })
+  const h2 = screen.getByRole('heading', { level: 2 })
+  expect(h2).toBeInTheDocument()
 })

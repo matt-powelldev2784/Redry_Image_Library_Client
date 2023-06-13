@@ -17,13 +17,13 @@ export const Hero = () => {
           className="m-4 h-20 md:h-24"
         />
 
-        <p className="mt-8 text-center text-lg font-semibold md:text-3xl">
+        <h1 className="mt-8 text-center text-lg font-semibold md:text-3xl">
           User Generated Image Library
-        </p>
-        <p className="mx-4 mt-4 text-center text-base md:w-[500px] md:text-xl lg:mx-0">
+        </h1>
+        <h2 className="mx-4 mt-4 text-center text-base md:w-[500px] md:text-xl lg:mx-0">
           Your destination for stunning, high-quality images. Explore our
           collection and find the perfect visuals for your next project.
-        </p>
+        </h2>
 
         <SearchInput
           optionalClassNames="mt-12 w-11/12 rounded-xl px-3 py-2 text-center text-base md:w-1/2 lg:w-[28rem]"

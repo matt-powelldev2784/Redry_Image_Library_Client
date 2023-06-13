@@ -1,35 +1,74 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { apiCall } from '../../components/utils/apiCall'
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
-export interface CounterState {
-  value: number
+export interface DataState {
+  isLoading: boolean
+  imageData: []
+  totalImagesFound: string
+  totalImagesReturned: string
 }
 
-const initialState: CounterState = {
-  value: 0,
+const initialState: DataState = {
+  isLoading: false,
+  imageData: [],
+  totalImagesFound: '',
+  totalImagesReturned: '',
 }
+
+interface HandleSearchProps {
+  key?: string
+  type: string
+}
+
+export const handleSearch = createAsyncThunk(
+  'data/handleSearch',
+  async (event: HandleSearchProps): Promise<any> => {
+    try {
+      const response = await apiCall({
+        httpMethod: 'GET',
+        route: `search-images?tags=man&tags=dog`,
+      })
+      const searchResults = response.data
+      console.log('searchResults', searchResults)
+      return searchResults
+    } catch (err) {
+      console.log(err)
+    }
+  }
+)
 
 export const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
-    },
+    dummyReducer: (state) => {},
+  },
+  extraReducers: (builder) => {
+    builder
+      //---------------------------------------------------------------------
+      .addCase(handleSearch.pending, (state) => {
+        state.isLoading = true
+        state.imageData = []
+        state.totalImagesFound = ''
+        state.totalImagesReturned = ''
+      })
+      .addCase(handleSearch.fulfilled, (state, { payload }) => {
+        const { images, returned, total } = payload
+        state.isLoading = false
+        state.imageData = images
+        state.totalImagesReturned = returned
+        state.totalImagesFound = total
+      })
+      .addCase(handleSearch.rejected, (state, { error }: any) => {
+        state.isLoading = false
+        state.imageData = []
+        state.totalImagesFound = ''
+        state.totalImagesReturned = ''
+      })
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = dataSlice.actions
+export const { dummyReducer } = dataSlice.actions
 
 export default dataSlice.reducer

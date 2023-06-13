@@ -7,10 +7,11 @@ interface HandleSearchProps {
 
 export const handleSearch = async (event: HandleSearchProps) => {
   const getSearchResults = async () => {
-    const searchResults = await apiCall({
+    const response = await apiCall({
       httpMethod: 'GET',
       route: `search-images?tags=man&tags=dog`,
     })
+    const searchResults = response.data
     console.log('searchResults', searchResults)
     return searchResults
   }
