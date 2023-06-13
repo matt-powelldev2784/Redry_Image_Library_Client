@@ -1,5 +1,5 @@
 import { apiCall } from '../../components/utils/apiCall'
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { ImageData } from '../../TS/interfaces'
 
 export interface DataState {

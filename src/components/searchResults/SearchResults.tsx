@@ -1,6 +1,5 @@
 import { useAppSelector } from '../../redux/hooks/reduxHooks'
 import { ImageItem } from './ImageItem'
-import { SearchInput } from '../ui/ui-index'
 import { SearchResultsNav } from '../navBar/SearchResultsNav'
 
 export const SearchResults = () => {

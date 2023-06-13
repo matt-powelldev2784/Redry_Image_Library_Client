@@ -1,5 +1,4 @@
 import { ImageData } from '../../TS/interfaces'
-import { Button } from '../ui/ui-index'
 
 interface ImageItemProps {
   imageData: ImageData
@@ -9,7 +8,7 @@ interface ImageItemProps {
 const onDownloadClick = (event: React.MouseEvent) => {}
 
 export const ImageItem = ({ imageData }: ImageItemProps) => {
-  const { path, thumbnailPath, uploadedBy, description } = imageData
+  const { thumbnailPath, uploadedBy, description } = imageData
 
   return (
     <article className="group relative flex h-[250px] w-11/12 items-end rounded-xl md:h-[230px] md:w-[360px] lg:h-[250px] lg:w-[460px] ">
