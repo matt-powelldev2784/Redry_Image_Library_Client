@@ -7,6 +7,7 @@ export interface DataState {
   imageData: ImageData[]
   totalImagesFound: string
   totalImagesReturned: string
+  searchTerm: string
 }
 
 const initialState: DataState = {
@@ -14,6 +15,7 @@ const initialState: DataState = {
   imageData: [],
   totalImagesFound: '',
   totalImagesReturned: '',
+  searchTerm: '',
 }
 
 export const handleSearch = createAsyncThunk(
@@ -48,7 +50,9 @@ export const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
-    dummyReducer: (state) => {},
+    setSearchTerm: (state, { payload }) => {
+      state.searchTerm = payload
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -76,6 +80,6 @@ export const dataSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { dummyReducer } = dataSlice.actions
+export const { setSearchTerm } = dataSlice.actions
 
 export default dataSlice.reducer

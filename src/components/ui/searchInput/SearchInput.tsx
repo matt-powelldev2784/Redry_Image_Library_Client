@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react'
-import { handleSearch } from '../../../redux/slice/dataSlice'
+import { handleSearch, setSearchTerm } from '../../../redux/slice/dataSlice'
 import { useAppDispatch } from '../../../redux/hooks/reduxHooks'
 
 interface SearchInputProps {
@@ -24,6 +24,7 @@ export const SearchInput = ({
   ) => {
     if (event.key === 'Enter') {
       dispatch(handleSearch(searchText))
+      dispatch(setSearchTerm(searchText))
     }
   }
 
