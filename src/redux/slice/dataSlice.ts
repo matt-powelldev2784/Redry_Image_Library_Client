@@ -31,7 +31,6 @@ export const handleSearch = createAsyncThunk(
     }
 
     searchQuery = searchQuery.slice(0, -1)
-    console.log('searchQuery', searchQuery)
 
     try {
       const response = await apiCall({
