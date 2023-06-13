@@ -31,6 +31,7 @@ export const handleSearch = createAsyncThunk(
     }
 
     searchQuery = searchQuery.slice(0, -1)
+    console.log('searchQuery', searchQuery)
 
     try {
       const response = await apiCall({
@@ -38,7 +39,6 @@ export const handleSearch = createAsyncThunk(
         route: `search-images?${searchQuery}`,
       })
       const searchResults = response.data
-      console.log('searchResults', searchResults)
       return searchResults
     } catch (err) {
       console.log(err)
