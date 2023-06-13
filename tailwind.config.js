@@ -18,6 +18,12 @@ module.exports = {
         md: '800px',
         lg: '1200px',
       },
+      backgroundImage: {
+        'radial-black':
+          'radial-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5))',
+      },
+      display: ['group-hover'],
+      backgroundColor: ['group-hover'],
     },
   },
   plugins: [],
