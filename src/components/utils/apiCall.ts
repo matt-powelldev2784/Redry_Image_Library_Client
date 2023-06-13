@@ -5,6 +5,8 @@ export const apiCall = async (apiOptions: ApiOptions) => {
   const { httpMethod, route, body } = apiOptions
   const BASE_URL = process.env.REACT_APP_BASE_URL
 
+  console.log('`${BASE_URL}/${route}`', `${BASE_URL}/${route}`)
+
   try {
     let response: any
 
