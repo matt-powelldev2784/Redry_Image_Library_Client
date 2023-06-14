@@ -1,6 +1,6 @@
 import { SearchInput } from '../ui/ui-index'
 
-export const SearchResultsNav = () => {
+export const SecondaryNav = () => {
   return (
     <div className="relative z-50 flex h-fit w-full flex-wrap items-center justify-center bg-primaryGreen md:justify-between">
       {/* <img

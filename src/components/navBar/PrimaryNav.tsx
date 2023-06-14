@@ -1,4 +1,4 @@
-export const Nav = () => {
+export const PrimaryNav = () => {
   return (
     <div className="absolute z-50 flex h-20 w-full items-center justify-center gap-4 bg-lightGrey/25">
       <p className="p-1 px-2">Developer API</p>
