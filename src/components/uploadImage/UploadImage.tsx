@@ -23,7 +23,7 @@ export const UploadImage = () => {
   return (
     <section>
       <SecondaryNav />
-      <article className="m-4 flex w-full items-center justify-center">
+      <article className="m-4 flex min-h-screen w-full items-center justify-center">
         <div className="flex w-1/2 flex-col items-center justify-center bg-primaryGreen">
           <h1 className="m-4">Upload Image</h1>
           <form className="flex flex-col items-center justify-center">

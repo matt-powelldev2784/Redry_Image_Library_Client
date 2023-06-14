@@ -14,7 +14,7 @@ export const SearchResults = () => {
   })
 
   return (
-    <section>
+    <section className="min-h-screen">
       <SecondaryNav />
       <div className="flex w-screen flex-col items-center justify-center">
         <h1 className="mx-8 mt-8 text-center text-3xl">

@@ -15,9 +15,6 @@ export const addImageToBucket = async (file: any) => {
     })
 
     const imageUrl = url.split('?')[0]
-    const img = document.createElement('img')
-    img.src = imageUrl
-    document.body.appendChild(img)
 
     return imageUrl
   } catch (err) {

@@ -3,8 +3,8 @@ export const addImageDetailsToDb = async (imageUrl: any) => {
     const imageProp = {
       path: imageUrl,
       uploadedBy: 'Matthew Powell',
-      description: 'cat in a hat',
-      tags: ['cat', 'hat'],
+      description: 'man mooon',
+      tags: ['man', 'moon'],
     }
 
     const url = 'http://18.134.11.162:5001/add-image-details-to-db'
