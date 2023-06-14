@@ -6,8 +6,8 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <Nav />
-        <Hero />
+        {/* <Nav />
+        <Hero /> */}
         <SearchResults />
       </div>
     </Provider>

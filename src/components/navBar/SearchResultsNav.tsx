@@ -20,7 +20,7 @@ export const SearchResultsNav = () => {
           alt="Redry logo"
         />
         <SearchInput
-          optionalClassNames="w-full min-w-[280px] md:w-[400px] lg:w-[600px] mb-3 p-2 md:m-0 rounded-xl text-left text-base bg-slate-100 outline-none border-2 border-white focus:border-slate-400"
+          optionalClassNames="w-full min-w-[280px] md:w-[400px] lg:w-[600px] mb-3 p-2 md:m-0 rounded-xl text-left text-base bg-slate-100 outline-none border-2 border-white focus:border-darkBlack"
           placeholderText="Search Image Library"
         />
       </div>
