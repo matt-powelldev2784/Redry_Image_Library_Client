@@ -17,7 +17,7 @@ export const SearchResults = () => {
     <section>
       <SearchResultsNav />
       <div className="flex w-screen flex-col items-center justify-center">
-        <h1 className="mt-16 text-3xl">
+        <h1 className="mx-8 mt-8 text-center text-3xl">
           Search Results for: {currentSearchTerm}
         </h1>
         <div className="flex w-screen items-center justify-center">
