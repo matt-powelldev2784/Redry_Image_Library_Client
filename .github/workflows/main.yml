@@ -1,4 +1,6 @@
-name: Production Buildon:
+name: Production Build
+
+on:
   pull_request:
   push:
     branches:
@@ -9,20 +11,21 @@ jobs:
     
     strategy:
       matrix:
-        node-version: [16.x, 18.x]       
-    steps:
+        node-version: [16.x, 18.x]
+        
+        steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Yarn Install
+        - name: Yarn Install
       run: |
         npm install
     - name: Production Build
       run: |
-        npm run build
-    - name: Deploy to S3
+        npm build
+  - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@master
       with:
         args: --acl public-read --delete
