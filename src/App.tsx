@@ -1,4 +1,9 @@
-import { Hero, PrimaryNav, SearchResults } from './components'
+import {
+  Hero,
+  PrimaryNav,
+  SearchResults,
+  UploadImage,
+} from './components/componentIndex'
 import { store } from './redux/store/store'
 import { Provider } from 'react-redux'
 
@@ -8,7 +13,8 @@ function App() {
       <div className="App">
         <PrimaryNav />
         <Hero />
-        {/* <SearchResults /> */}
+        <SearchResults />
+        <UploadImage />
       </div>
     </Provider>
   )
