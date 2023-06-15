@@ -1,10 +1,13 @@
-export const addImageDetailsToDb = async (imageUrl: any) => {
+export const addImageDetailsToDb = async (imageDetails: any) => {
   try {
+    const { imageUrl, uploadedBy, description, tags } = imageDetails
+    const tagsArray = tags.toLowerCase().split(',')
+
     const imageProp = {
       path: imageUrl,
-      uploadedBy: 'Matthew Powell',
-      description: 'man mooon',
-      tags: ['man', 'moon'],
+      uploadedBy: uploadedBy,
+      description: description,
+      tags: tagsArray,
     }
 
     const url = 'http://18.134.11.162:5001/add-image-details-to-db'
