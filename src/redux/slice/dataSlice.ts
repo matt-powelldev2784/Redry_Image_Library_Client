@@ -30,8 +30,7 @@ export const handleSearch = createAsyncThunk(
       searchQuery = newQuery
     }
 
-    searchQuery = searchQuery.slice(0, -1)
-
+    searchQuery = searchQuery.slice(0, -1).toLowerCase()
     try {
       const response = await apiCall({
         httpMethod: 'GET',
