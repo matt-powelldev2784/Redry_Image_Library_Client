@@ -3,12 +3,14 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 export interface ImageUploadState {
   isLoading: boolean
-  errors: string[]
+  errors: string[] | null
+  fileSizeError: string | null
 }
 
 const initialState: ImageUploadState = {
   isLoading: false,
-  errors: [],
+  errors: null,
+  fileSizeError: null,
 }
 
 export const imageUploadSlice = createSlice({
@@ -18,13 +20,20 @@ export const imageUploadSlice = createSlice({
     toggleLoadingState: (state, { payload }) => {
       state.isLoading = !state.isLoading
     },
-    setErrorState: (state, { payload }) => {
-      state.errors = [payload]
+    setImageUploadErrorState: (state, { payload }) => {
+      state.fileSizeError = payload
+    },
+    resetImageUploadErrorState: (state) => {
+      state.fileSizeError = null
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { toggleLoadingState, setErrorState } = imageUploadSlice.actions
+export const {
+  toggleLoadingState,
+  setImageUploadErrorState,
+  resetImageUploadErrorState,
+} = imageUploadSlice.actions
 
 export default imageUploadSlice.reducer

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import dataReducer from '../slice/dataSlice'
-import imageUploadReducer from '../slice/imageUpload'
+import imageUploadReducer from '../slice/imageUploadSlice'
 
 export const store = configureStore({
   reducer: { dataReducer: dataReducer, imageUploadReducer: imageUploadReducer },
