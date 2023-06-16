@@ -11,8 +11,10 @@ export const UploadImage = () => {
 
   const onSelectFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      setFile(event.target.files[0])
-      formik.setFieldValue('file', event.target.files[0])
+      const file = event.target.files[0]
+      file.size > 1 && alert('File is too big!')
+      setFile(file)
+      formik.setFieldValue('file', file)
     }
   }
 
@@ -74,7 +76,13 @@ export const UploadImage = () => {
               onChange={formik.handleChange}
               value={formik.values.tags}
             ></input>
-            <input id="file" type="file" name="file" onChange={onSelectFile} />
+            <input
+              id="file"
+              type="file"
+              name="file"
+              onChange={onSelectFile}
+              accept="image/jpeg"
+            />
             <Button
               type="submit"
               optionalClasses="my-2 mt-4 rounded-xl border-2 border-darkBlack bg-primaryGreen px-4 py-1 text-xl font-semibold text-darkBlack lg:w-[28rem]"

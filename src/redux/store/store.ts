@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import dataReducer from '../slice/dataSlice'
+import imageUploadReducer from '../slice/imageUpload'
 
 export const store = configureStore({
-  reducer: { dataReducer: dataReducer },
+  reducer: { dataReducer: dataReducer, imageUploadReducer: imageUploadReducer },
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
