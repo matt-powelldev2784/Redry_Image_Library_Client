@@ -90,7 +90,7 @@ export const UploadImage = () => {
   return (
     <section className="min-h-screen min-w-[320px]">
       <SecondaryNav />
-      <div className="flex w-full items-center justify-center">
+      <div className="mt-4 flex w-full items-center justify-center">
         <article className="justify-cente my-4 mb-8 flex flex-col items-center md:w-1/2">
           <h1 className="text-3xl">Upload Image</h1>
           <form
@@ -128,7 +128,7 @@ export const UploadImage = () => {
               </div>
             </label>
 
-            <label htmlFor="uploadedBy" className="w-full p-1 text-xs">
+            <label htmlFor="uploadedBy" className="w-full p-1 text-sm">
               Uploader Name
             </label>
             <input
@@ -140,7 +140,7 @@ export const UploadImage = () => {
               value={formik.values.uploadedBy}
               className="mb-2 w-full rounded-lg border-2 border-darkBlack p-2 px-4"
             ></input>
-            <label htmlFor="description" className="w-full p-1 text-xs">
+            <label htmlFor="description" className="w-full p-1 text-sm">
               Image Description
             </label>
             <input
@@ -152,8 +152,9 @@ export const UploadImage = () => {
               value={formik.values.description}
               className="mb-2 w-full rounded-lg border-2 border-darkBlack p-2 px-4"
             ></input>
-            <label htmlFor="tags" className="w-full p-1 text-xs">
-              Image Tags (seperate each tag by a comma)
+            <label htmlFor="tags" className="w-full p-1 text-sm">
+              Image Tags{' '}
+              <span className="text-xs">(seperate each tag by a comma)</span>
             </label>
             <input
               id="tags"
