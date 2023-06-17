@@ -17,7 +17,7 @@ export const Hero = () => {
           className="m-4 h-20 md:h-24"
         />
 
-        <h1 className="mt-8 text-center text-lg font-semibold md:text-3xl">
+        <h1 className="mt-8 overflow-hidden text-center text-lg font-semibold md:text-3xl">
           User Generated Image Library
         </h1>
         <h2 className="mx-4 mt-4 text-center text-base md:w-[500px] md:text-xl lg:mx-0">

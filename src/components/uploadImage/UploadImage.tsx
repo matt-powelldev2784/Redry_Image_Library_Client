@@ -97,6 +97,25 @@ export const UploadImage = () => {
             onSubmit={formik.handleSubmit}
             className="flex flex-col items-center justify-center"
           >
+            <label
+              htmlFor="file"
+              className={`h-20 w-full border-2 border-red-500 ${
+                dragActive ? 'bg-blue-500' : null
+              } `}
+              onDragEnter={handleDrag}
+              onDragLeave={handleDrag}
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+            >
+              Upload File
+            </label>
+            <input
+              id="file"
+              type="file"
+              name="file"
+              onChange={onSelectFile}
+              accept="image/jpeg, image/png, image/webp"
+            />
             <label htmlFor="uploadedBy">Uploader Name</label>
             <input
               id="uploadedBy"
@@ -126,25 +145,7 @@ export const UploadImage = () => {
               onChange={formik.handleChange}
               value={formik.values.tags}
             ></input>
-            <label
-              htmlFor="file"
-              className={`h-20 w-full border-2 border-red-500 ${
-                dragActive ? 'bg-blue-500' : null
-              } `}
-              onDragEnter={handleDrag}
-              onDragLeave={handleDrag}
-              onDragOver={handleDragOver}
-              onDrop={handleDrop}
-            >
-              Upload File
-            </label>
-            <input
-              id="file"
-              type="file"
-              name="file"
-              onChange={onSelectFile}
-              accept="image/jpeg, image/png, image/webp"
-            />
+
             <Button
               type="submit"
               optionalClasses="my-2 mt-4 rounded-xl border-2 border-darkBlack bg-primaryGreen px-4 py-1 text-xl font-semibold text-darkBlack lg:w-[28rem]"
