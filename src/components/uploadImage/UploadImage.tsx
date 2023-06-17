@@ -88,35 +88,49 @@ export const UploadImage = () => {
   })
 
   return (
-    <section>
+    <section className="min-h-screen min-w-[320px]">
       <SecondaryNav />
-      <article className="m-4 flex min-h-screen w-full items-center justify-center">
-        <div className="flex w-1/2 flex-col items-center justify-center bg-primaryGreen">
-          <h1 className="m-4">Upload Image</h1>
+      <div className="flex w-full items-center justify-center">
+        <article className="justify-cente my-4 mb-8 flex flex-col items-center md:w-1/2">
+          <h1 className="text-3xl">Upload Image</h1>
           <form
             onSubmit={formik.handleSubmit}
-            className="flex flex-col items-center justify-center"
+            className="flex w-11/12 flex-col items-center justify-center md:w-full"
           >
             <label
               htmlFor="file"
-              className={`h-20 w-full border-2 border-red-500 ${
-                dragActive ? 'bg-blue-500' : null
+              className={`m-4 flex w-full flex-col items-center justify-center rounded-xl border-2 border-dotted border-primaryGreen bg-primaryGreen/25 ${
+                dragActive ? 'bg-primaryGreen/10' : null
               } `}
               onDragEnter={handleDrag}
               onDragLeave={handleDrag}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
             >
-              Upload File
+              <img
+                src="/image_upload.svg"
+                alt="upload file"
+                className="m-6 mb-2 w-24"
+              />
+              <p className="text-lg">Drag & Drop your image here</p>
+              <p className="mb-6 text-sm">Accepted types jpg, png and webp</p>
+              <p className="mb-6 text-lg font-bold text-primaryGreen/50">OR</p>
+              <div className="mb-8 w-48 cursor-pointer rounded-lg bg-primaryGreen p-2 text-center">
+                <input
+                  id="file"
+                  type="file"
+                  name="file"
+                  onChange={onSelectFile}
+                  accept="image/jpeg, image/png, image/webp"
+                  className="hidden"
+                />
+                Upload image
+              </div>
             </label>
-            <input
-              id="file"
-              type="file"
-              name="file"
-              onChange={onSelectFile}
-              accept="image/jpeg, image/png, image/webp"
-            />
-            <label htmlFor="uploadedBy">Uploader Name</label>
+
+            <label htmlFor="uploadedBy" className="w-full p-1 text-xs">
+              Uploader Name
+            </label>
             <input
               id="uploadedBy"
               name="uploadedBy"
@@ -124,8 +138,11 @@ export const UploadImage = () => {
               placeholder="Uploader Name"
               onChange={formik.handleChange}
               value={formik.values.uploadedBy}
+              className="mb-2 w-full rounded-lg border-2 border-darkBlack p-2 px-4"
             ></input>
-            <label htmlFor="description">Image Description</label>
+            <label htmlFor="description" className="w-full p-1 text-xs">
+              Image Description
+            </label>
             <input
               id="description"
               name="description"
@@ -133,8 +150,9 @@ export const UploadImage = () => {
               placeholder="Image description"
               onChange={formik.handleChange}
               value={formik.values.description}
+              className="mb-2 w-full rounded-lg border-2 border-darkBlack p-2 px-4"
             ></input>
-            <label htmlFor="tags">
+            <label htmlFor="tags" className="w-full p-1 text-xs">
               Image Tags (seperate each tag by a comma)
             </label>
             <input
@@ -144,6 +162,7 @@ export const UploadImage = () => {
               placeholder="Image tags"
               onChange={formik.handleChange}
               value={formik.values.tags}
+              className="mb-2 w-full rounded-lg border-2 border-darkBlack p-2 px-4"
             ></input>
 
             <Button
@@ -159,8 +178,8 @@ export const UploadImage = () => {
           {formik.errors.tags ? <p>{formik.errors.tags}</p> : null}
           {formik.errors.file ? <p>{formik.errors.file}</p> : null}
           {fileSizeError ? <p>{fileSizeError}</p> : null}
-        </div>
-      </article>
+        </article>
+      </div>
     </section>
   )
 }

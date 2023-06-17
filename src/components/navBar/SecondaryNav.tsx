@@ -2,7 +2,7 @@ import { SearchInput } from '../ui/ui-index'
 
 export const SecondaryNav = () => {
   return (
-    <div className="relative z-50 flex h-fit w-full flex-wrap items-center justify-center bg-primaryGreen md:justify-between">
+    <div className="relative z-50 flex h-fit w-full min-w-[320px] flex-wrap items-center justify-center bg-primaryGreen md:justify-between">
       {/* <img
         src="/world_green_light_nav_bg1.jpg"
         alt="Green light bulb background"
