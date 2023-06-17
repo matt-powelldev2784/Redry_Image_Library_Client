@@ -100,7 +100,7 @@ export const UploadImage = () => {
             <label
               htmlFor="file"
               className={`m-4 flex w-full flex-col items-center justify-center rounded-xl border-2 border-dotted border-primaryGreen bg-primaryGreen/25 ${
-                dragActive ? 'bg-primaryGreen/10' : null
+                dragActive ? 'bg-primaryGreen/50' : null
               } `}
               onDragEnter={handleDrag}
               onDragLeave={handleDrag}
