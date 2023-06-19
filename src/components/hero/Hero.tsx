@@ -27,7 +27,7 @@ export const Hero = () => {
 
         <div className="mt-12 flex w-11/12 max-w-[500px] flex-col md:w-1/2 lg:w-[500px]">
           <SearchInput
-            optionalClassNames="w-full rounded-xl px-3 py-2 text-center text-base"
+            inputClassNames="w-full rounded-xl px-3 py-2 text-center text-base"
             placeholderText="Search Image Library"
           />
 

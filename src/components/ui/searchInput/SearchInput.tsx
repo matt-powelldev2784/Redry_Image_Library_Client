@@ -3,12 +3,14 @@ import { handleSearch, setSearchTerm } from '../../../redux/slice/dataSlice'
 import { useAppDispatch } from '../../../redux/hooks/reduxHooks'
 
 interface SearchInputProps {
-  optionalClassNames?: string
+  inputClassNames?: string
+  wrapperClassNames?: string
   placeholderText: string
 }
 
 export const SearchInput = ({
-  optionalClassNames,
+  inputClassNames,
+  wrapperClassNames,
   placeholderText,
 }: SearchInputProps) => {
   const [searchText, setSearchText] = useState('')
@@ -29,11 +31,13 @@ export const SearchInput = ({
   }
 
   return (
-    <div className="relative h-full w-full overflow-hidden">
+    <div
+      className={`${wrapperClassNames} relative h-full w-full overflow-hidden`}
+    >
       <img src="/search.svg" alt="" className="absolute left-0 h-full" />
 
       <input
-        className={`${optionalClassNames} border-2 border-slate-500 outline-none focus:border-slate-800`}
+        className={`${inputClassNames} border-2 border-slate-500 outline-none focus:border-slate-800`}
         placeholder={placeholderText}
         onKeyDown={dispatchHandleSerach}
         onChange={onInputChange}
