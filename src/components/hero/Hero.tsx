@@ -26,6 +26,11 @@ export const Hero = () => {
       <PrimaryNav />
       <section className="relative flex h-screen min-h-[800px] w-screen min-w-[320px] items-start justify-center md:items-center">
         <img
+          src="/light_circle_trans2.png"
+          alt=""
+          className="absolute top-40 z-10 w-48 opacity-40 md:top-80 md:hidden"
+        />
+        <img
           src="/world_green_light_extended5.jpg"
           alt="Green light bulb background"
           className="absolute h-full w-full object-cover"
