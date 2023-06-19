@@ -30,7 +30,7 @@ export const SearchInput = ({
 
   return (
     <input
-      className={`${optionalClassNames}`}
+      className={`${optionalClassNames} border-2 border-slate-500 outline-none focus:border-slate-800`}
       placeholder={placeholderText}
       onKeyDown={dispatchHandleSerach}
       onChange={onInputChange}
