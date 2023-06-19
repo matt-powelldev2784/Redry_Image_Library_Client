@@ -155,7 +155,7 @@ export const UploadImage = () => {
               ? errorJsx(formik.errors.uploadedBy)
               : null}
 
-            <label htmlFor="description" className="w-full p-1 text-sm">
+            <label htmlFor="description" className="mt-2 w-full p-1 text-sm">
               Image Description
             </label>
             <input
@@ -176,7 +176,7 @@ export const UploadImage = () => {
               ? errorJsx(formik.errors.description)
               : null}
 
-            <label htmlFor="tags" className="w-full p-1 text-sm">
+            <label htmlFor="tags" className="mt-2 w-full p-1 text-sm">
               Image Tags{' '}
               <span className="text-xs">(seperate each tag by a comma)</span>
             </label>
