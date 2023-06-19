@@ -1,6 +1,7 @@
 import { useState, ChangeEvent } from 'react'
 import { handleSearch, setSearchTerm } from '../../../redux/slice/dataSlice'
 import { useAppDispatch } from '../../../redux/hooks/reduxHooks'
+import { useNavigate } from 'react-router-dom'
 
 interface SearchInputProps {
   inputClassNames?: string
@@ -15,18 +16,20 @@ export const SearchInput = ({
 }: SearchInputProps) => {
   const [searchText, setSearchText] = useState('')
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const searchText = e.target.value
     setSearchText(searchText)
   }
 
-  const dispatchHandleSerach = (
+  const dispatchHandleSearch = (
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if (event.key === 'Enter') {
       dispatch(handleSearch(searchText))
       dispatch(setSearchTerm(searchText))
+      navigate('/search-results')
     }
   }
 
@@ -39,7 +42,7 @@ export const SearchInput = ({
       <input
         className={`${inputClassNames} border-2 border-slate-500 outline-none focus:border-slate-800`}
         placeholder={placeholderText}
-        onKeyDown={dispatchHandleSerach}
+        onKeyDown={dispatchHandleSearch}
         onChange={onInputChange}
       ></input>
     </div>
