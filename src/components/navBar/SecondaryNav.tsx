@@ -2,12 +2,7 @@ import { SearchInput } from '../ui/ui-index'
 
 export const SecondaryNav = () => {
   return (
-    <div className="relative z-50 flex h-fit w-full min-w-[320px] flex-wrap items-center justify-center bg-primaryGreen md:justify-between">
-      {/* <img
-        src="/world_green_light_nav_bg1.jpg"
-        alt="Green light bulb background"
-        className="absolute z-0 h-full w-full object-cover"
-      /> */}
+    <nav className="relative z-50 flex h-fit w-full min-w-[320px] flex-wrap items-center justify-center bg-primaryGreen md:justify-between">
       <div className="z-20 flex w-11/12 flex-col items-center justify-center md:ml-2 md:w-fit md:flex-row">
         <img
           className="mb-2 mt-3 hidden w-12 md:mr-2 md:block"
@@ -31,6 +26,6 @@ export const SecondaryNav = () => {
           Upload Image
         </p>
       </div>
-    </div>
+    </nav>
   )
 }
