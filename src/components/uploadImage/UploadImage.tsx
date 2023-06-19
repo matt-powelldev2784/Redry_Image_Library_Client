@@ -36,7 +36,6 @@ export const UploadImage = () => {
     }
   }
 
-  // handle drag events
   const handleDrag = function (event: DragEvent<HTMLLabelElement>) {
     event.preventDefault()
     event.stopPropagation()
@@ -87,6 +86,10 @@ export const UploadImage = () => {
     },
   })
 
+  const errorJsx = (children: string) => {
+    return <p className="text-sm text-red-500">{children}</p>
+  }
+
   return (
     <section className="min-h-screen min-w-[320px]">
       <SecondaryNav />
@@ -126,6 +129,9 @@ export const UploadImage = () => {
                 />
                 Upload image
               </div>
+              {fileSizeError ? (
+                <p className="text-red-500">{fileSizeError}</p>
+              ) : null}
             </label>
 
             <label htmlFor="uploadedBy" className="w-full p-1 text-sm">
@@ -138,8 +144,17 @@ export const UploadImage = () => {
               placeholder="Uploader Name"
               onChange={formik.handleChange}
               value={formik.values.uploadedBy}
-              className="mb-2 w-full rounded-lg border-2 border-darkBlack p-2 px-4"
-            ></input>
+              onBlur={formik.handleBlur}
+              className={`w-full rounded-lg border-2 border-darkBlack p-2 px-4 outline-none ${
+                formik.touched.uploadedBy &&
+                formik.errors.uploadedBy &&
+                'border-2 border-red-500'
+              }`}
+            />
+            {formik.touched.uploadedBy && formik.errors.uploadedBy
+              ? errorJsx(formik.errors.uploadedBy)
+              : null}
+
             <label htmlFor="description" className="w-full p-1 text-sm">
               Image Description
             </label>
@@ -150,8 +165,17 @@ export const UploadImage = () => {
               placeholder="Image description"
               onChange={formik.handleChange}
               value={formik.values.description}
-              className="mb-2 w-full rounded-lg border-2 border-darkBlack p-2 px-4"
+              onBlur={formik.handleBlur}
+              className={`w-full rounded-lg border-2 border-darkBlack p-2 px-4 outline-none ${
+                formik.touched.description &&
+                formik.errors.description &&
+                'border-2 border-red-500'
+              }`}
             ></input>
+            {formik.touched.description && formik.errors.description
+              ? errorJsx(formik.errors.description)
+              : null}
+
             <label htmlFor="tags" className="w-full p-1 text-sm">
               Image Tags{' '}
               <span className="text-xs">(seperate each tag by a comma)</span>
@@ -163,8 +187,16 @@ export const UploadImage = () => {
               placeholder="Image tags"
               onChange={formik.handleChange}
               value={formik.values.tags}
-              className="mb-2 w-full rounded-lg border-2 border-darkBlack p-2 px-4"
-            ></input>
+              onBlur={formik.handleBlur}
+              className={`w-full rounded-lg border-2 border-darkBlack p-2 px-4 outline-none ${
+                formik.touched.tags &&
+                formik.errors.tags &&
+                'border-2 border-red-500'
+              }`}
+            />
+            {formik.touched.tags && formik.errors.tags
+              ? errorJsx(formik.errors.tags)
+              : null}
 
             <Button
               type="submit"
@@ -172,13 +204,6 @@ export const UploadImage = () => {
               buttonText="Upload File"
             />
           </form>
-          {formik.errors.uploadedBy ? <p>{formik.errors.uploadedBy}</p> : null}
-          {formik.errors.description ? (
-            <p>{formik.errors.description}</p>
-          ) : null}
-          {formik.errors.tags ? <p>{formik.errors.tags}</p> : null}
-          {formik.errors.file ? <p>{formik.errors.file}</p> : null}
-          {fileSizeError ? <p>{fileSizeError}</p> : null}
         </article>
       </div>
     </section>
