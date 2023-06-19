@@ -1,6 +1,5 @@
 import { SearchInput, Button } from '../ui/ui-index'
 import { PrimaryNav } from '../componentIndex'
-import { MouseEvent } from 'react'
 import { useAppDispatch } from '../../redux/hooks/reduxHooks'
 import { handleSearch, setSearchTerm } from '../../redux/slice/dataSlice'
 import { useNavigate } from 'react-router-dom'

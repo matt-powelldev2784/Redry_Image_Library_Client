@@ -1,6 +1,13 @@
 import { SearchInput } from '../ui/ui-index'
+import { useNavigate } from 'react-router-dom'
 
 export const SecondaryNav = () => {
+  const navigate = useNavigate()
+
+  const handleNavigateClick = (route: string) => {
+    navigate(route)
+  }
+
   return (
     <nav className="relative z-50 flex h-fit w-full min-w-[320px] flex-wrap items-center justify-center bg-primaryGreen/75 md:justify-between">
       <div className="z-20 flex w-11/12 flex-col items-center justify-center md:m-3 md:ml-2 md:w-1/2 md:flex-row">
@@ -23,10 +30,18 @@ export const SecondaryNav = () => {
       </div>
 
       <div className="m-4 hidden flex-row gap-4 text-darkBlack md:z-10 md:mr-8 md:flex">
-        <p className="p-1 px-2">Developer API</p>
-        <p className="rounded border-2 border-darkBlack p-1 px-2">
+        <button
+          className="p-1 px-2"
+          onClick={() => handleNavigateClick('/upload-image')}
+        >
+          Developer API
+        </button>
+        <button
+          className="rounded border-2 border-darkBlack p-1 px-2"
+          onClick={() => handleNavigateClick('/upload-image')}
+        >
           Upload Image
-        </p>
+        </button>
       </div>
     </nav>
   )
