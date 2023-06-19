@@ -11,7 +11,7 @@ module.exports = {
         primaryGreen: '#00B200',
         lightGrey: '#EEEEEE',
         darkGrey: ' #D9D9D9',
-        darkBlack: '#161616',
+        darkBlack: '#181818',
       },
       screens: {
         sm: '0px',
