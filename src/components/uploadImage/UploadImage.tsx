@@ -90,7 +90,7 @@ export const UploadImage = () => {
   return (
     <section className="min-h-screen min-w-[320px]">
       <SecondaryNav />
-      <div className="mt-4 flex w-full items-center justify-center">
+      <div className="flex w-full items-center justify-center">
         <article className="justify-cente my-4 mb-8 flex flex-col items-center md:w-1/2">
           <h1 className="text-3xl">Upload Image</h1>
           <form
@@ -110,12 +110,12 @@ export const UploadImage = () => {
               <img
                 src="/image_upload.svg"
                 alt="upload file"
-                className="m-6 mb-2 w-24"
+                className="m-4 mb-2 w-24"
               />
               <p className="text-lg">Drag & Drop your image here</p>
-              <p className="mb-6 text-sm">Accepted types jpg, png and webp</p>
-              <p className="mb-6 text-lg font-bold text-primaryGreen/50">OR</p>
-              <div className="mb-8 w-48 cursor-pointer rounded-lg bg-primaryGreen p-2 text-center">
+              <p className="mb-3 text-sm">Accepted types jpg, png and webp</p>
+              <p className="mb-3 text-lg font-bold text-primaryGreen/50">OR</p>
+              <div className="mb-5 w-48 cursor-pointer rounded-lg bg-primaryGreen p-2 text-center">
                 <input
                   id="file"
                   type="file"

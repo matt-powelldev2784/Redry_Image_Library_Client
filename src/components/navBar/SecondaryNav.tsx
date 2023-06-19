@@ -10,7 +10,7 @@ export const SecondaryNav = () => {
           alt="Redry logo"
         />
         <img
-          className="mb-3 mt-3 h-12 md:mr-2 md:hidden"
+          className="mb-3 mt-3 h-8 md:mr-2 md:hidden"
           src="/re_dry_logo_whte_flower.svg"
           alt="Redry logo"
         />
