@@ -29,11 +29,15 @@ export const SearchInput = ({
   }
 
   return (
-    <input
-      className={`${optionalClassNames} border-2 border-slate-500 outline-none focus:border-slate-800`}
-      placeholder={placeholderText}
-      onKeyDown={dispatchHandleSerach}
-      onChange={onInputChange}
-    ></input>
+    <div className="relative h-full w-full overflow-hidden">
+      <img src="/search.svg" alt="" className="absolute left-0 h-full" />
+
+      <input
+        className={`${optionalClassNames} border-2 border-slate-500 outline-none focus:border-slate-800`}
+        placeholder={placeholderText}
+        onKeyDown={dispatchHandleSerach}
+        onChange={onInputChange}
+      ></input>
+    </div>
   )
 }
