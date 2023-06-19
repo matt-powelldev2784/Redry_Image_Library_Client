@@ -1,11 +1,28 @@
 import { SearchInput, Button } from '../ui/ui-index'
-import { handleSearch } from '../ui/searchInput/handleSearch'
 import { PrimaryNav } from '../componentIndex'
+import { MouseEvent } from 'react'
+import { useAppDispatch } from '../../redux/hooks/reduxHooks'
+import { handleSearch, setSearchTerm } from '../../redux/slice/dataSlice'
+import { useNavigate } from 'react-router-dom'
 
 export const Hero = () => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const handleButtonSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const form = event.target as HTMLFormElement
+    const elements = form.elements as HTMLFormControlsCollection
+    const searchInput = elements.namedItem('search-input') as HTMLInputElement
+    const searchText = searchInput.value
+
+    dispatch(handleSearch(searchText))
+    dispatch(setSearchTerm(searchText))
+    navigate('/search-results')
+  }
+
   return (
     <>
-      {' '}
       <PrimaryNav />
       <section className="relative flex h-screen min-h-[800px] w-screen min-w-[320px] items-start justify-center md:items-center">
         <img
@@ -30,16 +47,18 @@ export const Hero = () => {
           </h2>
 
           <div className="mt-12 flex w-11/12 max-w-[500px] flex-col md:w-1/2 lg:w-[500px]">
-            <SearchInput
-              inputClassNames="w-full rounded-xl px-3 py-2 text-center text-base"
-              placeholderText="Search Image Library"
-            />
+            <form onSubmit={handleButtonSearch}>
+              <SearchInput
+                inputClassNames="w-full rounded-xl px-3 py-2 text-center text-base"
+                placeholderText="Search Image Library"
+              />
 
-            <Button
-              onClick={handleSearch}
-              optionalClasses="w-full my-2 mt-4 rounded-xl border-2 border-darkBlack bg-primaryGreen px-4 py-1 text-xl font-semibold text-darkBlack"
-              buttonText="Search"
-            />
+              <Button
+                optionalClasses="w-full my-2 mt-4 rounded-xl px-4 py-1 text-xl font-semibold text-darkBlack"
+                buttonText="Search"
+                type="submit"
+              />
+            </form>
           </div>
         </div>
       </section>

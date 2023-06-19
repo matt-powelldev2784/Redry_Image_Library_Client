@@ -40,6 +40,8 @@ export const SearchInput = ({
       <img src="/search.svg" alt="" className="absolute left-0 h-full" />
 
       <input
+        id="search-input"
+        name="search-input"
         className={`${inputClassNames} border-2 border-slate-500 outline-none focus:border-slate-800`}
         placeholder={placeholderText}
         onKeyDown={dispatchHandleSearch}
