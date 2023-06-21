@@ -10,12 +10,14 @@ import {
   setImageUploadErrorState,
   resetImageUploadErrorState,
 } from '../../redux/slice/imageUploadSlice'
+import { useFormikProps } from './utils/useFormik'
 
 export const UploadImage = () => {
   const dispatch = useAppDispatch()
   const { fileSizeError } = useAppSelector((state) => state.imageUploadReducer)
   const [file, setFile] = useState<File | null>(null)
   const [dragActive, setDragActive] = useState(false)
+  const formik = useFormikProps()
 
   const fileIsToBig = (file: File) => {
     const maxFileSize = 1024 * 1024 * 2
@@ -61,30 +63,6 @@ export const UploadImage = () => {
   const handleDragOver = function (event: DragEvent<HTMLLabelElement>) {
     event.preventDefault()
   }
-
-  const formik = useFormik({
-    initialValues: {
-      uploadedBy: '',
-      description: '',
-      tags: '',
-      file: file,
-    },
-    validationSchema: Yup.object({
-      uploadedBy: Yup.string().required(
-        'Please input a value for uploader name'
-      ),
-      description: Yup.string().required('Please input a image description'),
-      tags: Yup.string().required(
-        'Please input image tags separated by commas'
-      ),
-      file: Yup.mixed().required('Please upload an image'),
-    }),
-    onSubmit: async (values) => {
-      const { uploadedBy, description, tags } = values
-      const imageUrl = await addImageToBucket(file)
-      await addImageDetailsToDb({ imageUrl, uploadedBy, description, tags })
-    },
-  })
 
   const errorJsx = (children: string) => {
     return <p className="text-sm text-red-500">{children}</p>
