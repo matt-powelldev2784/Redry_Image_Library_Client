@@ -2,28 +2,30 @@ import axios from 'axios'
 import { ApiOptions } from '../../TS/interfaces'
 
 export const apiCall = async (apiOptions: ApiOptions) => {
-  const { httpMethod, route, body } = apiOptions
-  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const { httpMethod, route, body, options, noBasePath } = apiOptions
+  let BASE_URL = process.env.REACT_APP_BASE_URL
 
-  const getRequest = `${BASE_URL}/${route}`
-  const getRequestString = getRequest.toString()
-  console.log('getRequestString', getRequestString)
+  if (noBasePath) {
+    BASE_URL = ''
+  }
+
+  console.log('BASE_URL', BASE_URL)
 
   try {
     let response: any
 
     switch (httpMethod) {
       case 'POST':
-        response = await axios.post(`${BASE_URL}/${route}`, body)
+        response = await axios.post(`${BASE_URL}${route}`, body)
         break
       case 'GET':
-        response = await axios.get(`${BASE_URL}/${route}`)
+        response = await axios.get(`${BASE_URL}${route}`)
         break
       case 'PUT':
-        response = await axios.put(`${BASE_URL}/${route}`)
+        response = await axios.put(`${BASE_URL}${route}`, body, options)
         break
       case 'DELETE':
-        response = await axios.delete(`${BASE_URL}/${route}`)
+        response = await axios.delete(`${BASE_URL}${route}`)
         break
       default:
         console.log('Api call type not recognised')

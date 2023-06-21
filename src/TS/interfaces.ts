@@ -2,6 +2,8 @@ export interface ApiOptions {
   httpMethod: string
   route: string
   body?: any
+  options?: any
+  noBasePath?: boolean
 }
 export interface apiResponse {
   success: boolean
