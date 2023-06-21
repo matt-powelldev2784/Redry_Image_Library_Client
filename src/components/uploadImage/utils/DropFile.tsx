@@ -11,11 +11,11 @@ interface DropFileProps {
     uploadedBy: string
     description: string
     tags: string
-    file: File | null
+    file: File | any
   }>
 }
 
-export const DropFile = ({ formik }: any) => {
+export const DropFile = ({ formik }: DropFileProps) => {
   const dispatch = useAppDispatch()
   const { fileSizeError } = useAppSelector((state) => state.imageUploadReducer)
   const [dragActive, setDragActive] = useState(false)

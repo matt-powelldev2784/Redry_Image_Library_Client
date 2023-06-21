@@ -4,7 +4,6 @@ import { addImageToBucket } from '../addImageToBucket'
 import { addImageDetailsToDb } from '../addImageDetailsToDb'
 
 export const useFormikProps = () => {
-  console.log('useFormikProps------------')
   const formik = useFormik({
     initialValues: {
       uploadedBy: '',
