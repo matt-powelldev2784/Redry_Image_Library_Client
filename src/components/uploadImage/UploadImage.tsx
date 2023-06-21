@@ -2,13 +2,10 @@ import { SecondaryNav } from '../componentIndex'
 import { Button } from '../ui/ui-index'
 import { useFormikProps } from './utils/useFormik'
 import { DropFile } from './utils/DropFile'
+import { FormikError } from './utils/FormikError'
 
 export const UploadImage = () => {
   const formik = useFormikProps()
-
-  const errorJsx = (children: string) => {
-    return <p className="text-sm text-red-500">{children}</p>
-  }
 
   return (
     <section className="min-h-screen min-w-[320px]">
@@ -21,6 +18,7 @@ export const UploadImage = () => {
             className="flex w-11/12 flex-col items-center justify-center md:w-full"
           >
             <DropFile formik={formik} />
+
             <label htmlFor="uploadedBy" className="w-full p-1 text-sm">
               Uploader Name
             </label>
@@ -38,9 +36,7 @@ export const UploadImage = () => {
                 'border-2 border-red-500'
               }`}
             />
-            {formik.touched.uploadedBy && formik.errors.uploadedBy
-              ? errorJsx(formik.errors.uploadedBy)
-              : null}
+            <FormikError formik={formik} name="uploadedBy" />
 
             <label htmlFor="description" className="mt-2 w-full p-1 text-sm">
               Image Description
@@ -59,9 +55,7 @@ export const UploadImage = () => {
                 'border-2 border-red-500'
               }`}
             ></input>
-            {formik.touched.description && formik.errors.description
-              ? errorJsx(formik.errors.description)
-              : null}
+            <FormikError formik={formik} name="description" />
 
             <label htmlFor="tags" className="mt-2 w-full p-1 text-sm">
               Image Tags{' '}
@@ -81,10 +75,7 @@ export const UploadImage = () => {
                 'border-2 border-red-500'
               }`}
             />
-            {formik.touched.tags && formik.errors.tags
-              ? errorJsx(formik.errors.tags)
-              : null}
-
+            <FormikError formik={formik} name="tags" />
             <Button
               type="submit"
               optionalClasses="my-2 mt-4 rounded-xl border-2 border-darkBlack bg-primaryGreen px-4 py-1 text-xl font-semibold text-darkBlack lg:w-[28rem]"

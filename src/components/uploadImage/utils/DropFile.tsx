@@ -34,9 +34,7 @@ export const DropFile = ({ formik }: DropFileProps) => {
     if (event.target.files) {
       const file = event.target.files[0]
       if (fileIsToBig(file)) return
-      console.log('file-------', file)
       formik.setFieldValue('file', file)
-      console.log('formik.values', formik.values)
     }
   }
 
