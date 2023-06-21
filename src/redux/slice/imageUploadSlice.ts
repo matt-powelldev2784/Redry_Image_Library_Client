@@ -69,8 +69,6 @@ export const addImageDetailsToDb = createAsyncThunk(
         noBasePath: true,
       })
 
-      console.log('newImage', newImage)
-
       return newImage
     } catch (err) {
       console.log(err)

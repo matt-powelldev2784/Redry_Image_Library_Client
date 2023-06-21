@@ -1,11 +1,17 @@
-import { useAppDispatch } from './../../../redux/hooks/reduxHooks'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from './../../../redux/hooks/reduxHooks'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { addImageToBucket } from '../../../redux/slice/imageUploadSlice'
 import { addImageDetailsToDb } from '../../../redux/slice/imageUploadSlice'
+import { useNavigate } from 'react-router-dom'
 
 export const useFormikProps = () => {
   const dispatch = useAppDispatch()
+  const { errors } = useAppSelector((state) => state.imageUploadReducer)
+  const navigate = useNavigate()
 
   const formik = useFormik({
     initialValues: {
@@ -28,12 +34,16 @@ export const useFormikProps = () => {
       const { uploadedBy, description, tags, file } = values
 
       if (file === null) return
-      
+
       const newImage = await dispatch(addImageToBucket(file))
       const imageUrl = newImage.payload
       await dispatch(
         addImageDetailsToDb({ imageUrl, uploadedBy, description, tags })
       )
+
+      if (!errors) {
+        navigate('/search-results')
+      }
     },
   })
 
