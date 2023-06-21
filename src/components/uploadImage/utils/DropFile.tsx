@@ -19,6 +19,13 @@ export const DropFile = ({ formik }: DropFileProps) => {
   const dispatch = useAppDispatch()
   const { fileSizeError } = useAppSelector((state) => state.imageUploadReducer)
   const [dragActive, setDragActive] = useState(false)
+  const selectedFile = formik.values.file?.name
+
+  const selectedFileJsx = (
+    <p className="mb-5 w-48 cursor-pointer rounded-lg bg-primaryGreen p-2 text-center">
+      `You have selected ${selectedFile}`
+    </p>
+  )
 
   const fileIsToBig = (file: File) => {
     const maxFileSize = 1024 * 1024 * 2
@@ -79,6 +86,7 @@ export const DropFile = ({ formik }: DropFileProps) => {
         alt="upload file"
         className="m-4 mb-2 w-24"
       />
+
       <p className="text-lg">Drag & Drop your image here</p>
       <p className="mb-3 text-sm">Accepted types jpg, png and webp</p>
       <p className="mb-3 text-lg font-bold text-primaryGreen/50">OR</p>
@@ -91,7 +99,7 @@ export const DropFile = ({ formik }: DropFileProps) => {
           accept="image/jpeg, image/png, image/webp"
           className="hidden"
         />
-        Upload image
+        {selectedFile ? `${selectedFile}` : 'Upload image'}
       </div>
       {fileSizeError ? <p className="text-red-500">{fileSizeError}</p> : null}
     </label>
