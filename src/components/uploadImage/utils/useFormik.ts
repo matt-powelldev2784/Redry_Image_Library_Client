@@ -1,9 +1,19 @@
+import {
+  useAppDispatch,
+  useAppSelector,
+} from './../../../redux/hooks/reduxHooks'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { addImageToBucket } from '../addImageToBucket'
+// import { addImageToBucket } from '../addImageToBucket'
 import { addImageDetailsToDb } from '../addImageDetailsToDb'
+import { addImageToBucket } from '../../../redux/slice/imageUploadSlice'
 
 export const useFormikProps = () => {
+  const dispatch = useAppDispatch()
+  const imageUrl = useAppSelector(
+    (state) => state.imageUploadReducer.uploadImageUrl
+  )
+
   const formik = useFormik({
     initialValues: {
       uploadedBy: '',
@@ -24,7 +34,8 @@ export const useFormikProps = () => {
     onSubmit: async (values) => {
       console.log('values', values)
       const { uploadedBy, description, tags, file } = values
-      const imageUrl: string = await addImageToBucket(file)
+      if (file === null) return
+      await dispatch(addImageToBucket(file))
       await addImageDetailsToDb({ imageUrl, uploadedBy, description, tags })
     },
   })
