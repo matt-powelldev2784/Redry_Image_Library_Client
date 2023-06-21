@@ -21,3 +21,10 @@ export interface ImageData {
   tags: []
   __v?: any
 }
+
+export interface ImageDetails {
+  imageUrl: string | null
+  uploadedBy: string
+  description: string
+  tags: string
+}

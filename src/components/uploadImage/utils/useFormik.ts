@@ -5,8 +5,9 @@ import {
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 // import { addImageToBucket } from '../addImageToBucket'
-import { addImageDetailsToDb } from '../addImageDetailsToDb'
+// import { addImageDetailsToDb } from '../addImageDetailsToDb'
 import { addImageToBucket } from '../../../redux/slice/imageUploadSlice'
+import { addImageDetailsToDb } from '../../../redux/slice/imageUploadSlice'
 
 export const useFormikProps = () => {
   const dispatch = useAppDispatch()
@@ -35,8 +36,11 @@ export const useFormikProps = () => {
       console.log('values', values)
       const { uploadedBy, description, tags, file } = values
       if (file === null) return
-      await dispatch(addImageToBucket(file))
-      await addImageDetailsToDb({ imageUrl, uploadedBy, description, tags })
+      const newImage = await dispatch(addImageToBucket(file))
+      const imageUrl = newImage.payload
+      await dispatch(
+        addImageDetailsToDb({ imageUrl, uploadedBy, description, tags })
+      )
     },
   })
 

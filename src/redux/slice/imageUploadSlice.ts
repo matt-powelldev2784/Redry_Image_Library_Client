@@ -1,11 +1,13 @@
 import { apiCall } from '../../components/utils/apiCall'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { ImageDetails } from '../../TS/interfaces'
 
 export interface ImageUploadState {
   isLoading: boolean
   errors: string[] | null
   fileSizeError: string | null
   uploadImageUrl: string | null
+  uploadImageThumbnailUrl: string | null
 }
 
 const initialState: ImageUploadState = {
@@ -13,6 +15,7 @@ const initialState: ImageUploadState = {
   errors: null,
   fileSizeError: null,
   uploadImageUrl: null,
+  uploadImageThumbnailUrl: null,
 }
 
 export const addImageToBucket = createAsyncThunk(
@@ -43,6 +46,39 @@ export const addImageToBucket = createAsyncThunk(
   }
 )
 
+export const addImageDetailsToDb = createAsyncThunk(
+  'data/addImageDetailsToDb',
+  async (imageDetails: ImageDetails): Promise<any> => {
+    try {
+      const { imageUrl, uploadedBy, description, tags } = imageDetails
+      const tagsArray = tags.toLowerCase().split(',')
+
+      const imageProp = {
+        path: imageUrl,
+        uploadedBy: uploadedBy,
+        description: description,
+        tags: tagsArray,
+      }
+
+      const url = 'http://18.134.11.162:5001/add-image-details-to-db'
+
+      const newImage = await apiCall({
+        httpMethod: 'POST',
+        route: url,
+        body: imageProp,
+        noBasePath: true,
+      })
+
+      console.log('newImage', newImage)
+
+      return newImage
+    } catch (err) {
+      console.log(err)
+      throw err
+    }
+  }
+)
+
 export const imageUploadSlice = createSlice({
   name: 'imageUpload',
   initialState,
@@ -62,21 +98,36 @@ export const imageUploadSlice = createSlice({
       //---------------------------------------------------------------------
       .addCase(addImageToBucket.pending, (state) => {
         state.isLoading = true
+        state.errors = null
+        state.uploadImageThumbnailUrl = null
+        state.uploadImageUrl = null
       })
       .addCase(addImageToBucket.fulfilled, (state, { payload }) => {
         state.isLoading = false
+        state.uploadImageThumbnailUrl = null
         state.uploadImageUrl = payload
-        console.log('payload', payload)
       })
       .addCase(addImageToBucket.rejected, (state, { error }: any) => {
         state.isLoading = false
         state.errors = [error.message]
-        console.warn('rejected-------------------------')
+      })
+      //---------------------------------------------------------------------
+      .addCase(addImageDetailsToDb.pending, (state) => {
+        state.isLoading = true
+        state.errors = null
+      })
+      .addCase(addImageDetailsToDb.fulfilled, (state, { payload }) => {
+        const { thumbnailPath } = payload.data
+        state.isLoading = false
+        state.uploadImageThumbnailUrl = thumbnailPath
+      })
+      .addCase(addImageDetailsToDb.rejected, (state, { error }: any) => {
+        state.isLoading = false
+        state.errors = [error.message]
       })
   },
 })
 
-// Action creators are generated for each case reducer function
 export const {
   toggleLoadingState,
   setImageUploadErrorState,
