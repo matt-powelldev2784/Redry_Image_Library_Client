@@ -15,7 +15,6 @@ import { useFormikProps } from './utils/useFormik'
 export const UploadImage = () => {
   const dispatch = useAppDispatch()
   const { fileSizeError } = useAppSelector((state) => state.imageUploadReducer)
-  const [file, setFile] = useState<File | null>(null)
   const [dragActive, setDragActive] = useState(false)
   const formik = useFormikProps()
 
@@ -33,7 +32,6 @@ export const UploadImage = () => {
     if (event.target.files) {
       const file = event.target.files[0]
       if (fileIsToBig(file)) return
-      setFile(file)
       formik.setFieldValue('file', file)
     }
   }
@@ -55,7 +53,6 @@ export const UploadImage = () => {
     if (event.dataTransfer.files && event.dataTransfer.files[0]) {
       const file = event.dataTransfer.files[0]
       if (fileIsToBig(file)) return
-      setFile(file)
       formik.setFieldValue('file', file)
     }
   }
