@@ -4,6 +4,7 @@ import { addImageToBucket } from '../addImageToBucket'
 import { addImageDetailsToDb } from '../addImageDetailsToDb'
 
 export const useFormikProps = () => {
+  console.log('useFormikProps------------')
   const formik = useFormik({
     initialValues: {
       uploadedBy: '',
@@ -22,8 +23,9 @@ export const useFormikProps = () => {
       file: Yup.mixed().required('Please upload an image'),
     }),
     onSubmit: async (values) => {
+      console.log('values', values)
       const { uploadedBy, description, tags, file } = values
-      const imageUrl = await addImageToBucket(file)
+      const imageUrl: string = await addImageToBucket(file)
       await addImageDetailsToDb({ imageUrl, uploadedBy, description, tags })
     },
   })
