@@ -1,19 +1,11 @@
-import {
-  useAppDispatch,
-  useAppSelector,
-} from './../../../redux/hooks/reduxHooks'
+import { useAppDispatch } from './../../../redux/hooks/reduxHooks'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-// import { addImageToBucket } from '../addImageToBucket'
-// import { addImageDetailsToDb } from '../addImageDetailsToDb'
 import { addImageToBucket } from '../../../redux/slice/imageUploadSlice'
 import { addImageDetailsToDb } from '../../../redux/slice/imageUploadSlice'
 
 export const useFormikProps = () => {
   const dispatch = useAppDispatch()
-  const imageUrl = useAppSelector(
-    (state) => state.imageUploadReducer.uploadImageUrl
-  )
 
   const formik = useFormik({
     initialValues: {
@@ -33,9 +25,10 @@ export const useFormikProps = () => {
       file: Yup.mixed().required('Please upload an image'),
     }),
     onSubmit: async (values) => {
-      console.log('values', values)
       const { uploadedBy, description, tags, file } = values
+
       if (file === null) return
+      
       const newImage = await dispatch(addImageToBucket(file))
       const imageUrl = newImage.payload
       await dispatch(
