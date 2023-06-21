@@ -1,4 +1,8 @@
-import { Hero, SearchResults, UploadImage } from './components/componentIndex'
+import {
+  Hero,
+  SearchResults,
+  UploadImagePage,
+} from './components/componentIndex'
 import { store } from './redux/store/store'
 import { Provider } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
@@ -10,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/search-results" element={<SearchResults />} />
-          <Route path="/upload-image" element={<UploadImage />} />
+          <Route path="/upload-image" element={<UploadImagePage />} />
         </Routes>
       </div>
     </Provider>
