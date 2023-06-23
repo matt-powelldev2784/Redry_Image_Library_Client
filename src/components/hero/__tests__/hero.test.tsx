@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { Hero } from '../Hero'
+import { Hero } from '../HeroPage'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 

@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../redux/hooks/reduxHooks'
 import { handleSearch, setSearchTerm } from '../../redux/slice/dataSlice'
 import { useNavigate } from 'react-router-dom'
 
-export const Hero = () => {
+export const HeroPage = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
