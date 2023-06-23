@@ -80,6 +80,7 @@ export const dataSlice = createSlice({
         state.imageData = []
         state.totalImagesFound = ''
         state.totalImagesReturned = ''
+        state.errors = null
       })
       .addCase(handleSearch.fulfilled, (state, { payload }) => {
         const { images, returned, total } = payload
@@ -101,7 +102,7 @@ export const dataSlice = createSlice({
         state.totalImagesReturned = ''
       })
       .addCase(getSingleImage.fulfilled, (state, { payload }) => {
-        const { images } = payload
+        const images = payload
         state.isLoading = false
         state.imageData = images
       })

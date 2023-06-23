@@ -4,8 +4,11 @@ import {
 } from './../../../redux/hooks/reduxHooks'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { addImageToBucket } from '../../../redux/slice/imageUploadSlice'
-import { addImageDetailsToDb } from '../../../redux/slice/imageUploadSlice'
+import {
+  addImageToBucket,
+  addImageDetailsToDb,
+} from '../../../redux/slice/imageUploadSlice'
+import { getSingleImage } from '../../../redux/slice/dataSlice'
 import { useNavigate } from 'react-router-dom'
 
 export const useFormikProps = () => {
@@ -37,13 +40,17 @@ export const useFormikProps = () => {
 
       const newImage = await dispatch(addImageToBucket(file))
       const imageUrl = newImage.payload
-      await dispatch(
+      const imageDbRecord = await dispatch(
         addImageDetailsToDb({ imageUrl, uploadedBy, description, tags })
       )
+      const imageDbId = imageDbRecord.payload.data._id
+      await dispatch(getSingleImage(imageDbId))
 
-      if (!errors) {
-        navigate('/search-results')
-      }
+      setTimeout(() => {
+        if (!errors) {
+          navigate('/search-results')
+        }
+      }, 2000)
     },
   })
 
