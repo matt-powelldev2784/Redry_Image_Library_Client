@@ -8,6 +8,7 @@ export interface DataState {
   totalImagesFound: string
   totalImagesReturned: string
   searchTerm: string
+  errors: string[] | null
 }
 
 const initialState: DataState = {
@@ -16,6 +17,7 @@ const initialState: DataState = {
   totalImagesFound: '',
   totalImagesReturned: '',
   searchTerm: '',
+  errors: null,
 }
 
 export const handleSearch = createAsyncThunk(
@@ -40,6 +42,24 @@ export const handleSearch = createAsyncThunk(
       return searchResults
     } catch (err) {
       console.log(err)
+      throw err
+    }
+  }
+)
+
+export const getSingleImage = createAsyncThunk(
+  'data/getSingleImage',
+  async (id: string): Promise<any> => {
+    try {
+      const response = await apiCall({
+        httpMethod: 'GET',
+        route: `single-image?id=${id}`,
+      })
+      const searchResult = response.data
+      return searchResult
+    } catch (err) {
+      console.log(err)
+      throw err
     }
   }
 )
@@ -71,8 +91,23 @@ export const dataSlice = createSlice({
       .addCase(handleSearch.rejected, (state, { error }: any) => {
         state.isLoading = false
         state.imageData = []
+        state.errors = [error.message]
+      })
+      //---------------------------------------------------------------------
+      .addCase(getSingleImage.pending, (state) => {
+        state.isLoading = true
+        state.imageData = []
         state.totalImagesFound = ''
         state.totalImagesReturned = ''
+      })
+      .addCase(getSingleImage.fulfilled, (state, { payload }) => {
+        const { images } = payload
+        state.isLoading = false
+        state.imageData = images
+      })
+      .addCase(getSingleImage.rejected, (state, { error }: any) => {
+        state.isLoading = false
+        state.errors = [error.message]
       })
   },
 })
