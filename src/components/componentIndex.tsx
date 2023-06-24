@@ -1,6 +1,5 @@
 export { HeroPage } from './hero/HeroPage'
-export { PrimaryNav } from './navBar/PrimaryNav'
-export { SecondaryNav } from './navBar/SecondaryNav'
+export { NavBar } from './navBar/NavBar'
 export { HomeContent } from './homeContent/HomeContent'
 export { SearchResultsPage } from './searchResults/SearchResultsPage'
 export { UploadImagePage } from './uploadImage/UploadImagePage'

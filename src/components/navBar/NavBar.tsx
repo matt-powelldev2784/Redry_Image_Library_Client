@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { handleHrefClick } from '../../lib/lib-index'
 
-export const SecondaryNav = () => {
+export const NavBar = () => {
   const navigate = useNavigate()
 
   const handleApiClick = () => {
