@@ -3,12 +3,16 @@ import { ImageData } from '../../TS/interfaces'
 interface ImageItemProps {
   imageData: ImageData
 }
-// TODO
-//----------------------------------------------------------------------------------
-const onDownloadClick = (event: React.MouseEvent) => {}
 
 export const ImageItem = ({ imageData }: ImageItemProps) => {
-  const { thumbnailPath, uploadedBy, description } = imageData
+  const onDownloadClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const buttonId = (event.target as HTMLButtonElement).id
+    console.log(buttonId)
+  }
+
+  const { thumbnailPath, uploadedBy, description, _id } = imageData
 
   return (
     <article className="group relative flex h-[250px] w-11/12 items-end rounded-xl md:h-[200px] md:w-5/12 lg:h-[200px] lg:w-3/12 ">
@@ -33,6 +37,7 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
         </div>
         <button
           onClick={onDownloadClick}
+          id={_id}
           className="block rounded-lg bg-slate-200 p-2 hover:bg-slate-50 md:text-xs"
         >
           Download
