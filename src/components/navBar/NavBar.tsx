@@ -22,7 +22,7 @@ export const NavBar = () => {
         <div className="flex items-center justify-center gap-4 md:gap-8">
           <NavItem
             onClick={() => {
-              handleHrefClick(githublink)
+              handleHrefClick({ route: githublink, newTab: true })
             }}
             imgPath="/cog.svg"
             text="Developer Api"
