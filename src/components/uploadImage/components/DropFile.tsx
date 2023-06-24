@@ -21,12 +21,6 @@ export const DropFile = ({ formik }: DropFileProps) => {
   const [dragActive, setDragActive] = useState(false)
   const selectedFile = formik.values.file?.name
 
-  const selectedFileJsx = (
-    <p className="mb-5 w-48 cursor-pointer rounded-lg bg-primaryGreen p-2 text-center">
-      `You have selected ${selectedFile}`
-    </p>
-  )
-
   const fileIsToBig = (file: File) => {
     const maxFileSize = 1024 * 1024 * 2
     if (file.size > maxFileSize) {
