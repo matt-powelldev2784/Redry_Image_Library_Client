@@ -11,7 +11,7 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
   const { thumbnailPath, uploadedBy, description } = imageData
 
   return (
-    <article className="group relative flex h-[250px] w-11/12 items-end rounded-xl md:h-[230px] md:w-[360px] lg:h-[250px] lg:w-[430px] ">
+    <article className="group relative flex h-[250px] w-11/12 items-end rounded-xl md:h-[200px] md:w-5/12 lg:h-[200px] lg:w-3/12 ">
       <div className="absolute z-10 h-full w-full rounded-xl group-hover:bg-radial-black"></div>
       <img
         className="absolute h-full w-full rounded-xl object-cover"
@@ -38,12 +38,6 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
           Download
         </button>
       </div>
-
-      {/* <p>{_id}</p>
-      <p>{thumbnailPath}</p>
-      <p>{uploadedBy}</p>
-      <p>{description}</p>
-      <p>{tags}</p> */}
     </article>
   )
 }

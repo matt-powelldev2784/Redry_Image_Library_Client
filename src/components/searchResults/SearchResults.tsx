@@ -25,11 +25,9 @@ export const SearchResults = ({ randomImages }: SearchResultsProps) => {
   })
 
   return (
-    <div className="flex w-screen flex-col items-center justify-center">
-      <div className="flex w-screen items-center justify-center">
-        <div className="mb-12 mt-6 flex w-full flex-wrap items-center justify-center gap-8 md:mx-4 lg:mx-8 lg:gap-14">
-          {imageItems}
-        </div>
+    <div className="flex w-screen items-center justify-center">
+      <div className="mb-12 mt-6 flex w-full flex-wrap items-center justify-center gap-4 md:mx-4 lg:mx-6 lg:gap-8">
+        {imageItems}
       </div>
     </div>
   )
