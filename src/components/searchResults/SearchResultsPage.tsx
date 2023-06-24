@@ -13,9 +13,16 @@ export const SearchResultsPage = () => {
       <NavBar />
       <SearchNav />
       <section className="min-h-screen">
-        <h1 className="mx-8 mt-4 overflow-y-hidden text-center text-2xl">
-          Search Results for: {currentSearchTerm}
-        </h1>
+        <div className="mx-8 mt-4 flex flex-wrap items-center justify-center">
+          <img
+            className="m-2 h-6"
+            src="/search_dark_green.svg"
+            alt="Redry logo"
+          />
+          <h1 className="overflow-y-hidden text-center text-2xl">
+            Search Results for: {currentSearchTerm}
+          </h1>
+        </div>
         <SearchResults />
       </section>
     </>
