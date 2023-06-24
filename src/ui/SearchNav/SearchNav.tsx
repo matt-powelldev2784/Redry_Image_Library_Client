@@ -9,7 +9,7 @@ export const SearchNav = () => {
         placeholderText="Search Image Library"
       />
       <button className="hidden h-8 items-center justify-center rounded border-2 border-darkBlack p-2 md:flex">
-        <img className="h-5" src="/search_dark_black.svg" alt="Redry logo" />
+        <img className="h-5" src="/search_dark_black.svg" alt="" />
         <p className="pl-2">Advanced Search</p>
       </button>
     </div>
