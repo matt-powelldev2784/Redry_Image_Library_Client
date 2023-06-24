@@ -1,11 +1,24 @@
+import { useEffect } from 'react'
 import { useAppSelector } from '../../redux/hooks/reduxHooks'
 import { ImageItem } from './ImageItem'
+import { handleSearch, setSearchTerm } from '../../redux/slice/dataSlice'
+import { useAppDispatch } from '../../redux/hooks/reduxHooks'
 
-export const SearchResults = () => {
+interface SearchResultsProps {
+  randomImages?: string
+}
+
+export const SearchResults = ({ randomImages }: SearchResultsProps) => {
+  const dispatch = useAppDispatch()
   const searchResults = useAppSelector((state) => state.dataReducer.imageData)
-  const currentSearchTerm = useAppSelector(
-    (state) => state.dataReducer.searchTerm
-  )
+
+  useEffect(() => {
+    dispatch(handleSearch(''))
+    dispatch(setSearchTerm(''))
+  }, [dispatch])
+
+  if (searchResults.length === 0) {
+  }
 
   const imageItems = searchResults.map((imageData) => {
     const { _id } = imageData
@@ -14,11 +27,8 @@ export const SearchResults = () => {
 
   return (
     <div className="flex w-screen flex-col items-center justify-center">
-      <h1 className="mx-8 mt-8 text-center text-2xl">
-        Search Results for: {currentSearchTerm}
-      </h1>
       <div className="flex w-screen items-center justify-center">
-        <div className="mb-12 mt-12 flex w-full flex-wrap items-center justify-center gap-8 md:mx-4 lg:mx-8 lg:gap-14">
+        <div className="mb-12 mt-6 flex w-full flex-wrap items-center justify-center gap-8 md:mx-4 lg:mx-8 lg:gap-14">
           {imageItems}
         </div>
       </div>

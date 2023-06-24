@@ -27,8 +27,8 @@ export const SearchInput = ({
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if (event.key === 'Enter') {
-      dispatch(handleSearch(searchText))
       dispatch(setSearchTerm(searchText))
+      dispatch(handleSearch(searchText))
       navigate('/search-results')
     }
   }
