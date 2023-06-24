@@ -10,10 +10,10 @@ export const NavBar = () => {
 
   return (
     <nav className="relative z-50 flex w-screen min-w-[320px] flex-wrap items-center justify-center bg-white">
-      <div className="flex w-full min-w-[320px] items-center justify-between p-3 pl-3 pr-3">
+      <div className="flex w-full min-w-[320px] items-center justify-between p-3 pl-3 pr-3 md:pr-5">
         <a href="/">
           <img
-            className="h-7 md:h-10"
+            className="h-7 md:ml-4 md:h-10"
             src="/re_dry_logo_green.svg"
             alt="Redry logo"
           />
