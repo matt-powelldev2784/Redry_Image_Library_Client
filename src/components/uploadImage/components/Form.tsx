@@ -1,4 +1,4 @@
-import { useFormikProps } from './useFormik'
+import { useFormikProps } from '../hooks/useFormik'
 import { DropFile } from './DropFile'
 import { Button } from '../../ui/ui-index'
 import { InputField } from './InputField'

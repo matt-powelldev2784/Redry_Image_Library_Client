@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ApiOptions } from '../../TS/interfaces'
+import { ApiOptions } from '../TS/interfaces'
 
 export const apiCall = async (apiOptions: ApiOptions) => {
   const { httpMethod, route, body, options, noBasePath } = apiOptions

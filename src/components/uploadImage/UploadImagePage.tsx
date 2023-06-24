@@ -1,6 +1,6 @@
 import { SecondaryNav } from '../componentIndex'
 
-import { Form } from './utils/Form'
+import { Form } from './components/Form'
 
 export const UploadImagePage = () => {
   return (

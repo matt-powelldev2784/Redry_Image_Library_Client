@@ -1,4 +1,4 @@
-import { apiCall } from '../../utils/apiCall'
+import { apiCall } from '../../../lib/apiCall'
 
 interface HandleSearchProps {
   key?: string

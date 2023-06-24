@@ -1,7 +1,4 @@
-import {
-  useAppDispatch,
-  useAppSelector,
-} from './../../../redux/hooks/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks/reduxHooks'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import {

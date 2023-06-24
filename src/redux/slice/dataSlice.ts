@@ -1,4 +1,4 @@
-import { apiCall } from '../../components/utils/apiCall'
+import { apiCall } from '../../lib/apiCall'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { ImageData } from '../../TS/interfaces'
 
