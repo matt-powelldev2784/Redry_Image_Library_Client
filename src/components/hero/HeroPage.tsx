@@ -1,5 +1,5 @@
 import { SearchInput, Button } from '../ui/ui-index'
-import { PrimaryNav } from '../componentIndex'
+import { SecondaryNav } from '../componentIndex'
 import { useAppDispatch } from '../../redux/hooks/reduxHooks'
 import { handleSearch, setSearchTerm } from '../../redux/slice/dataSlice'
 import { useNavigate } from 'react-router-dom'
@@ -22,7 +22,7 @@ export const HeroPage = () => {
 
   return (
     <>
-      <PrimaryNav />
+      <SecondaryNav />
       <section className="relative flex h-screen min-h-[800px] w-screen min-w-[320px] items-start justify-center md:items-center">
         <img
           src="/light_circle_trans2.png"

@@ -34,15 +34,13 @@ export const SearchInput = ({
   }
 
   return (
-    <div
-      className={`${wrapperClassNames} relative h-full w-full overflow-hidden`}
-    >
+    <div className={`relative h-full w-full ${wrapperClassNames}`}>
       <img src="/search.svg" alt="" className="absolute left-0 h-full" />
 
       <input
         id="search-input"
         name="search-input"
-        className={`${inputClassNames} border-2 border-slate-500 outline-none focus:border-slate-800`}
+        className={`border-2 border-slate-500 outline-none focus:border-slate-800 ${inputClassNames}`}
         placeholder={placeholderText}
         onKeyDown={dispatchHandleSearch}
         onChange={onInputChange}

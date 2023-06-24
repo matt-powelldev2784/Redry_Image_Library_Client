@@ -1,6 +1,7 @@
 import { useAppSelector } from '../../redux/hooks/reduxHooks'
 import { ImageItem } from './ImageItem'
 import { SecondaryNav } from '../navBar/SecondaryNav'
+import { SearchNav } from '../ui/ui-index'
 
 export const SearchResultsPage = () => {
   const searchResults = useAppSelector((state) => state.dataReducer.imageData)
@@ -16,6 +17,7 @@ export const SearchResultsPage = () => {
   return (
     <section className="min-h-screen">
       <SecondaryNav />
+      <SearchNav />
       <div className="flex w-screen flex-col items-center justify-center">
         <h1 className="mx-8 mt-8 text-center text-3xl">
           Search Results for: {currentSearchTerm}
