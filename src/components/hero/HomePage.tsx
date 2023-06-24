@@ -10,7 +10,7 @@ export const HomePage = () => {
       <section className="relative flex min-h-screen w-screen min-w-[320px] flex-col items-center justify-start">
         <Hero />
         <HomePageText />
-        <SearchResults />
+        <SearchResults randomImages={true} />
       </section>
     </>
   )

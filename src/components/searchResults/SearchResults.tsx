@@ -5,7 +5,7 @@ import { handleSearch, setSearchTerm } from '../../redux/slice/dataSlice'
 import { useAppDispatch } from '../../redux/hooks/reduxHooks'
 
 interface SearchResultsProps {
-  randomImages?: string
+  randomImages?: boolean
 }
 
 export const SearchResults = ({ randomImages }: SearchResultsProps) => {
@@ -13,12 +13,11 @@ export const SearchResults = ({ randomImages }: SearchResultsProps) => {
   const searchResults = useAppSelector((state) => state.dataReducer.imageData)
 
   useEffect(() => {
-    dispatch(handleSearch(''))
-    dispatch(setSearchTerm(''))
-  }, [dispatch])
-
-  if (searchResults.length === 0) {
-  }
+    if (randomImages) {
+      dispatch(handleSearch(''))
+      dispatch(setSearchTerm(''))
+    }
+  }, [dispatch, randomImages])
 
   const imageItems = searchResults.map((imageData) => {
     const { _id } = imageData
