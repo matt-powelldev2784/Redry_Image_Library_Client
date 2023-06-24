@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { SearchInput } from '../SearchInput'
-import * as dataSlice from '../../../../redux/slice/dataSlice'
+import * as dataSlice from '../../../redux/slice/dataSlice'
 import { configureStore } from '@reduxjs/toolkit'
 
 const mockHandleSearch = jest.fn()

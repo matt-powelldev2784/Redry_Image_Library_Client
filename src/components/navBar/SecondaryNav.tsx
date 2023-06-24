@@ -1,20 +1,13 @@
 import { useNavigate } from 'react-router-dom'
+import { handleHrefClick } from '../../lib/lib-index'
 
 export const SecondaryNav = () => {
   const navigate = useNavigate()
-
-  const handleHrefClick = (route: string) => {
-    window.location.href = route
-  }
 
   const handleApiClick = () => {
     handleHrefClick(
       'https://github.com/matt-powelldev2784/AWS_EC2_Lamda_Image_Library'
     )
-  }
-
-  const handleNavigateClick = (route: string) => {
-    navigate(route)
   }
 
   return (
@@ -33,7 +26,7 @@ export const SecondaryNav = () => {
           </button>
 
           <button
-            onClick={() => handleNavigateClick('/upload-image')}
+            onClick={() => navigate('/upload-image')}
             className="flex flex-col"
           >
             <img className="h-7" src="/upload_simple.svg" alt="" />

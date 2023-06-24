@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from 'react'
-import { handleSearch, setSearchTerm } from '../../../redux/slice/dataSlice'
-import { useAppDispatch } from '../../../redux/hooks/reduxHooks'
+import { handleSearch, setSearchTerm } from '../../redux/slice/dataSlice'
+import { useAppDispatch } from '../../redux/hooks/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 
 interface SearchInputProps {

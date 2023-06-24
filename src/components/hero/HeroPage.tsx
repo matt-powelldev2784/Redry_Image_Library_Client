@@ -1,4 +1,4 @@
-import { SearchInput, Button } from '../ui/ui-index'
+import { SearchInput, Button } from '../../ui/ui-index'
 import { SecondaryNav } from '../componentIndex'
 import { useAppDispatch } from '../../redux/hooks/reduxHooks'
 import { handleSearch, setSearchTerm } from '../../redux/slice/dataSlice'

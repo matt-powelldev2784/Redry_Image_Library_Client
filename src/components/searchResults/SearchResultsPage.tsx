@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../redux/hooks/reduxHooks'
 import { ImageItem } from './ImageItem'
 import { SecondaryNav } from '../navBar/SecondaryNav'
-import { SearchNav } from '../ui/ui-index'
+import { SearchNav } from '../../ui/ui-index'
 
 export const SearchResultsPage = () => {
   const searchResults = useAppSelector((state) => state.dataReducer.imageData)
