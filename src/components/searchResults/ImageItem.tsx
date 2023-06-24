@@ -28,12 +28,12 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
           />
           <div className="flex flex-col text-slate-200">
             <p className="text-xs ">Uploaded by:</p>
-            <p className="lg:text-lg ">{uploadedBy.toUpperCase()}</p>
+            <p className="text-sm ">{uploadedBy.toUpperCase()}</p>
           </div>
         </div>
         <button
           onClick={onDownloadClick}
-          className="md:font-sm rounded-lg bg-slate-200 p-2 hover:bg-slate-50"
+          className="block rounded-lg bg-slate-200 p-2 hover:bg-slate-50 md:text-xs"
         >
           Download
         </button>
