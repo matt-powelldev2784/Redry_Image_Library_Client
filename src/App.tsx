@@ -1,5 +1,5 @@
 import {
-  HeroPage,
+  HomePage,
   SearchResultsPage,
   UploadImagePage,
 } from './components/componentIndex'
@@ -12,7 +12,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <Routes>
-          <Route path="/" element={<HeroPage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/search-results" element={<SearchResultsPage />} />
           <Route path="/upload-image" element={<UploadImagePage />} />
         </Routes>
