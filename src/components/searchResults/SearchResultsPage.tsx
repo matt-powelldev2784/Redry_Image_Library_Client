@@ -21,7 +21,7 @@ export const SearchResultsPage = () => {
           />
           <h1 className="overflow-y-hidden text-center text-2xl">
             {currentSearchTerm
-              ? `Search Results for: ${currentSearchTerm}}`
+              ? `Search Results for: ${currentSearchTerm}`
               : 'Random Images'}
           </h1>
         </div>
