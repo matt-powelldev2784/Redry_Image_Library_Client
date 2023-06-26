@@ -103,6 +103,7 @@ export const dataSlice = createSlice({
       })
       .addCase(getSingleImage.fulfilled, (state, { payload }) => {
         const images = payload
+        images[0].thumbnailPath = images[0].path
         state.isLoading = false
         state.imageData = images
       })
