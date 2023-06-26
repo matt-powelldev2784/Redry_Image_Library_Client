@@ -1,6 +1,6 @@
 export const HomePageText = () => {
   return (
-    <div className="relative flex w-full flex-col items-center justify-center lg:mx-16 lg:w-[40rem]">
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden lg:mx-16 lg:w-[40rem]">
       <h1 className="mt-6 overflow-hidden text-center text-lg font-semibold md:text-3xl">
         User Generated Image Library
       </h1>
