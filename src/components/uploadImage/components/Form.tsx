@@ -48,7 +48,7 @@ export const Form = () => {
           <Button
             type="submit"
             optionalClasses="my-2 mt-4 rounded-xl border-2 border-darkBlack bg-primaryGreen px-4 py-1 text-xl font-semibold text-darkBlack lg:w-[28rem]"
-            buttonText="Upload File"
+            buttonText="Upload Image"
           />
         </form>
       </div>

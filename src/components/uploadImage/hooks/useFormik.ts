@@ -4,6 +4,7 @@ import * as Yup from 'yup'
 import {
   addImageToBucket,
   addImageDetailsToDb,
+  setImageUploadErrorState,
 } from '../../../redux/slice/imageUploadSlice'
 import { getSingleImage } from '../../../redux/slice/dataSlice'
 import { useNavigate } from 'react-router-dom'
@@ -28,7 +29,7 @@ export const useFormikProps = () => {
       tags: Yup.string().required(
         'Please input image tags separated by commas'
       ),
-      file: Yup.mixed().required('Please upload an image'),
+      file: Yup.mixed().required('Please select an image'),
     }),
     onSubmit: async (values) => {
       const { uploadedBy, description, tags, file } = values
@@ -43,11 +44,9 @@ export const useFormikProps = () => {
       const imageDbId = imageDbRecord.payload.data._id
       await dispatch(getSingleImage(imageDbId))
 
-      setTimeout(() => {
-        if (!errors) {
-          navigate('/search-results')
-        }
-      }, 2000)
+      if (!errors) {
+        navigate('/search-results')
+      }
     },
   })
 

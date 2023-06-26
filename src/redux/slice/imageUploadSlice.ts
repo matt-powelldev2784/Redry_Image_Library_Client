@@ -5,7 +5,7 @@ import { ImageDetails } from '../../TS/interfaces'
 export interface ImageUploadState {
   isLoading: boolean
   errors: string[] | null
-  fileSizeError: string | null
+  fileError: string | null
   uploadImageUrl: string | null
   uploadImageThumbnailUrl: string | null
 }
@@ -13,7 +13,7 @@ export interface ImageUploadState {
 const initialState: ImageUploadState = {
   isLoading: false,
   errors: null,
-  fileSizeError: null,
+  fileError: null,
   uploadImageUrl: null,
   uploadImageThumbnailUrl: null,
 }
@@ -88,10 +88,10 @@ export const imageUploadSlice = createSlice({
       state.isLoading = !state.isLoading
     },
     setImageUploadErrorState: (state, { payload }) => {
-      state.fileSizeError = payload
+      state.fileError = payload
     },
     resetImageUploadErrorState: (state) => {
-      state.fileSizeError = null
+      state.fileError = null
     },
   },
   extraReducers: (builder) => {

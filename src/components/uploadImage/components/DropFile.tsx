@@ -5,6 +5,7 @@ import {
   resetImageUploadErrorState,
   setImageUploadErrorState,
 } from '../../../redux/slice/imageUploadSlice'
+import { FormikError } from './FormikError'
 
 interface DropFileProps {
   formik: FormikProps<{
@@ -17,7 +18,7 @@ interface DropFileProps {
 
 export const DropFile = ({ formik }: DropFileProps) => {
   const dispatch = useAppDispatch()
-  const { fileSizeError } = useAppSelector((state) => state.imageUploadReducer)
+  const { fileError } = useAppSelector((state) => state.imageUploadReducer)
   const [dragActive, setDragActive] = useState(false)
   const selectedFile = formik.values.file?.name
 
@@ -69,7 +70,7 @@ export const DropFile = ({ formik }: DropFileProps) => {
       htmlFor="file"
       className={`m-4 flex w-full flex-col items-center justify-center rounded-xl border-2 border-dotted border-primaryGreen bg-primaryGreen/25 ${
         dragActive ? 'bg-primaryGreen/50' : null
-      } `}
+      } ${formik.touched['file'] && formik.errors['file'] && 'border-red-500'}`}
       onDragEnter={handleDrag}
       onDragLeave={handleDrag}
       onDragOver={handleDragOver}
@@ -93,9 +94,14 @@ export const DropFile = ({ formik }: DropFileProps) => {
           accept="image/jpeg, image/png, image/webp"
           className="hidden"
         />
-        {selectedFile ? `${selectedFile}` : 'Upload image'}
+        {selectedFile ? `${selectedFile}` : 'Select image'}
       </div>
-      {fileSizeError ? <p className="text-red-500">{fileSizeError}</p> : null}
+      {fileError ? <p className="text-red-500">{fileError}</p> : null}
+      <FormikError
+        formik={formik}
+        name={'file'}
+        optionalClassNames="text-xl bg-red-600 text-white rounded-xl p-2 px-8 m-2"
+      />
     </label>
   )
 }
