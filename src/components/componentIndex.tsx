@@ -1,4 +1,4 @@
-export { HomePage } from './hero/HomePage'
+export { HomePage } from './homePage/HomePage'
 export { NavBar } from './navBar/NavBar'
 export { HomeContent } from './homeContent/HomeContent'
 export { SearchResultsPage } from './searchResults/SearchResultsPage'
