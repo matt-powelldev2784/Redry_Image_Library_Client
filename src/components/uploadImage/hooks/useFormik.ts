@@ -4,7 +4,6 @@ import * as Yup from 'yup'
 import {
   addImageToBucket,
   addImageDetailsToDb,
-  setImageUploadErrorState,
 } from '../../../redux/slice/imageUploadSlice'
 import { getSingleImage } from '../../../redux/slice/dataSlice'
 import { useNavigate } from 'react-router-dom'
