@@ -33,6 +33,12 @@ export const NavBar = () => {
             imgPath="/upload_simple.svg"
             text="Upload Image"
           />
+
+          <NavItem
+            onClick={() => navigate('/search-results')}
+            imgPath="/search_dark_green.svg"
+            text="Search Images"
+          />
         </div>
       </div>
     </nav>
