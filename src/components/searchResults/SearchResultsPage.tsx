@@ -20,7 +20,9 @@ export const SearchResultsPage = () => {
             alt="Redry logo"
           />
           <h1 className="overflow-y-hidden text-center text-2xl">
-            Search Results for: {currentSearchTerm}
+            {currentSearchTerm
+              ? `Search Results for: ${currentSearchTerm}}`
+              : 'Random Images'}
           </h1>
         </div>
         <SearchResults />
