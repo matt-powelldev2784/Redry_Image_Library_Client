@@ -1,15 +1,20 @@
 import { ImageData } from '../../TS/interfaces'
+import { useAppSelector } from '../../redux/hooks/reduxHooks'
 
 interface ImageItemProps {
   imageData: ImageData
 }
 
 export const ImageItem = ({ imageData }: ImageItemProps) => {
+  const images = useAppSelector((state) => state.dataReducer.imageData)
+
   const onDownloadClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    const buttonId = (event.target as HTMLButtonElement).id
-    console.log(buttonId)
+    const imageId = (event.target as HTMLButtonElement).id
+    const image = images.find((image) => image._id === imageId)
+    const path = image?.path
+    if (path) window.open(path)
   }
 
   const { thumbnailPath, uploadedBy, description, _id } = imageData

@@ -22,10 +22,11 @@ export const addImageToBucket = createAsyncThunk(
   'data/addImageToBucket',
   async (file: File): Promise<any> => {
     try {
-      const preSignedUrl = await fetch(
-        'http://18.134.11.162:5001/get-presigned-url'
-      )
-      const { url } = await preSignedUrl.json()
+      const preSignedUrl = await apiCall({
+        httpMethod: 'GET',
+        route: 'get-presigned-url',
+      })
+      const { url } = await preSignedUrl
 
       //upload image to s3 bucket
       await apiCall({
@@ -52,21 +53,23 @@ export const addImageDetailsToDb = createAsyncThunk(
     try {
       const { imageUrl, uploadedBy, description, tags } = imageDetails
       const tagsArray = tags.toLowerCase().split(',')
+      const tagsArrayTrimmed = tagsArray.map((tag) => {
+        return tag.trim()
+      })
 
       const imageProp = {
         path: imageUrl,
         uploadedBy: uploadedBy,
         description: description,
-        tags: tagsArray,
+        tags: tagsArrayTrimmed,
       }
 
-      const url = 'http://18.134.11.162:5001/add-image-details-to-db'
+      const url = 'add-image-details-to-db'
 
       const newImage = await apiCall({
         httpMethod: 'POST',
         route: url,
         body: imageProp,
-        noBasePath: true,
       })
 
       return newImage
