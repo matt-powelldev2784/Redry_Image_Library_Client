@@ -15,7 +15,7 @@ export const Form = () => {
   return (
     <article className="flex w-full items-center justify-center">
       <div className="my-4 mb-8 flex w-full flex-col items-center justify-center md:w-1/2">
-        <h1 className="text-3xl">Upload Image</h1>
+        <h1 className="overflow-hidden text-3xl">Upload Image</h1>
         {errorsJSX ? errorsJSX : null}
         <form
           onSubmit={formik.handleSubmit}
