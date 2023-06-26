@@ -14,7 +14,7 @@ export const HomePageText = () => {
         <img
           src="/light_circle_trans2.png"
           alt=""
-          className="absolute h-48 opacity-40"
+          className="absolute h-48 opacity-30"
         />
 
         <img
