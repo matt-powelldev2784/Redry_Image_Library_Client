@@ -82,8 +82,10 @@ export const DropFile = ({ formik }: DropFileProps) => {
         className="m-4 mb-2 w-24"
       />
 
-      <p className="text-lg">Drag & Drop your image here</p>
-      <p className="mb-3 text-sm">Accepted types jpg, png and webp</p>
+      <p className="text-center text-lg">Drag & Drop your image here</p>
+      <p className="mb-3 text-center text-sm">
+        Accepted types jpg, png and webp
+      </p>
       <p className="mb-3 text-lg font-bold text-primaryGreen/50">OR</p>
       <div className="mb-5 w-48 cursor-pointer rounded-lg bg-primaryGreen p-2 text-center">
         <input
