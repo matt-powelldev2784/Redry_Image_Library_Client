@@ -69,7 +69,6 @@ export const dataSlice = createSlice({
   initialState,
   reducers: {
     setSearchTerm: (state, { payload }) => {
-      console.log('payload', payload)
       state.searchTerm = payload
     },
   },
