@@ -10,17 +10,19 @@ export const HomePageText = () => {
         collection and find the perfect visuals for your next project.
       </h2>
 
-      <img
-        src="/light_circle_trans2.png"
-        alt=""
-        className="absolute mt-40 h-48 opacity-40 md:mt-36"
-      />
+      <div className="flex w-full justify-center">
+        <img
+          src="/light_circle_trans2.png"
+          alt=""
+          className="absolute h-48 opacity-40"
+        />
 
-      <img
-        src="/re_dry_logo_green_slogan.svg"
-        alt="Redry logo with slogan"
-        className="z-20 mb-16 mt-20 h-16 md:mt-16 md:h-24"
-      />
+        <img
+          src="/re_dry_logo_green_slogan.svg"
+          alt="Redry logo with slogan"
+          className="z-20 mb-16 mt-16 h-16 md:mt-16 md:h-20"
+        />
+      </div>
     </div>
   )
 }

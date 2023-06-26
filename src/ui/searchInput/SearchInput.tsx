@@ -34,7 +34,7 @@ export const SearchInput = ({
   }
 
   return (
-    <div className={`relative h-full w-full ${wrapperClassNames}`}>
+    <div className={`min-w-[320px relative h-full w-full ${wrapperClassNames}`}>
       <img src="/search.svg" alt="" className="absolute left-0 h-full" />
 
       <input

@@ -20,7 +20,7 @@ export const Hero = () => {
   }
 
   return (
-    <div className="relative h-[200px] w-screen overflow-y-hidden md:h-[350px]">
+    <div className="relative h-[200px] w-screen min-w-[320px] overflow-y-hidden md:h-[350px]">
       <img
         src="/world_green_light_extended6.jpg"
         alt="Green light bulb background"
