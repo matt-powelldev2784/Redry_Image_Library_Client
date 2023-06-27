@@ -43,7 +43,7 @@ export const useFormikProps = () => {
       const imageDbId = imageDbRecord.payload.data._id
       await dispatch(getSingleImage(imageDbId))
 
-      if (!errors) {
+      if (errors.length === 0) {
         navigate('/search-results')
       }
     },

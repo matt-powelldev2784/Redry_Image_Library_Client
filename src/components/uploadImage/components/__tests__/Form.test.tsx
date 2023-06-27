@@ -75,4 +75,16 @@ describe('Form', () => {
     fireEvent.click(submitButton)
     expect(handleSubmit).toHaveBeenCalled()
   })
+
+  it('displays an error message when the user clicks in and out of an input field without entering any data', () => {
+    render(FormComponent)
+
+    const uploaderNameInput = screen.getByTestId('input-field-tags')
+    fireEvent.focus(uploaderNameInput)
+    fireEvent.blur(uploaderNameInput)
+
+    expect(
+      screen.getByText('Please input a value for uploader name')
+    ).toBeInTheDocument()
+  })
 })
