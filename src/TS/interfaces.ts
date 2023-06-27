@@ -18,7 +18,7 @@ export interface ImageData {
   thumbnailPath: string
   uploadedBy: string
   description: string
-  tags: []
+  tags: string[]
   __v?: any
 }
 
