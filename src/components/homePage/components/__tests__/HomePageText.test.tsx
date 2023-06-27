@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { HomePageText } from '../HomePageText'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
