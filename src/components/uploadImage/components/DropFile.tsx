@@ -75,6 +75,7 @@ export const DropFile = ({ formik }: DropFileProps) => {
       onDragLeave={handleDrag}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
+      data-testid="file-label"
     >
       <img
         src="/image_upload.svg"
@@ -95,8 +96,11 @@ export const DropFile = ({ formik }: DropFileProps) => {
           onChange={onSelectFile}
           accept="image/jpeg, image/png, image/webp"
           className="hidden"
+          data-testid="file-input"
         />
-        {selectedFile ? `${selectedFile}` : 'Select image'}
+        <p data-testid="file-name-text">
+          {selectedFile ? `${selectedFile}` : 'Select image'}
+        </p>
       </div>
       {fileError ? <p className="text-red-500">{fileError}</p> : null}
       <FormikError
