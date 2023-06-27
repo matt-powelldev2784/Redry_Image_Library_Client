@@ -46,7 +46,6 @@ test('calls onClick when clicked', () => {
   render(NavItemComponent)
 
   const button = screen.getByRole('button')
-  console.log('button', button)
   fireEvent.click(button)
 
   expect(onClick).toHaveBeenCalledTimes(1)
