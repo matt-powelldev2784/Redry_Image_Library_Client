@@ -18,16 +18,18 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => mockedUsedNavigate,
 }))
 
+const heroComponent = (
+  <Provider store={mockStore}>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+      </Routes>
+    </Router>
+  </Provider>
+)
+
 test('hero component renders background image, search input and button', () => {
-  render(
-    <Provider store={mockStore}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Hero />} />
-        </Routes>
-      </Router>
-    </Provider>
-  )
+  render(heroComponent)
 
   const backgroundImage = screen.getByAltText('Green light bulb background')
   expect(backgroundImage).toBeInTheDocument()
@@ -40,15 +42,7 @@ test('hero component renders background image, search input and button', () => {
 })
 
 test('user can type in search input', () => {
-  render(
-    <Provider store={mockStore}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Hero />} />
-        </Routes>
-      </Router>
-    </Provider>
-  )
+  render(heroComponent)
 
   const searchInput = screen.getByRole('searchbox') as HTMLInputElement
   expect(searchInput).toBeInTheDocument()
@@ -59,15 +53,7 @@ test('user can type in search input', () => {
 })
 
 test('navigates to search results when enter key pressed from search input', async () => {
-  render(
-    <Provider store={mockStore}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Hero />} />
-        </Routes>
-      </Router>
-    </Provider>
-  )
+  render(heroComponent)
 
   const searchInput = screen.getByRole('searchbox')
   fireEvent.change(searchInput, { target: { value: 'test' } })
@@ -78,15 +64,7 @@ test('navigates to search results when enter key pressed from search input', asy
 })
 
 test('navigates to search results when search button is pressed', async () => {
-  render(
-    <Provider store={mockStore}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Hero />} />
-        </Routes>
-      </Router>
-    </Provider>
-  )
+  render(heroComponent)
 
   const searchInput = screen.getByRole('searchbox')
   fireEvent.change(searchInput, { target: { value: 'test' } })
