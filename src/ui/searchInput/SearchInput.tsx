@@ -44,6 +44,7 @@ export const SearchInput = ({
         placeholder={placeholderText}
         onKeyDown={dispatchHandleSearch}
         onChange={onInputChange}
+        type="search"
       ></input>
     </div>
   )
