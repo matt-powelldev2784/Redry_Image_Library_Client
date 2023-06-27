@@ -15,6 +15,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/search-results" element={<SearchResultsPage />} />
           <Route path="/upload-image" element={<UploadImagePage />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </div>
     </Provider>
