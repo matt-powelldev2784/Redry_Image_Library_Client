@@ -31,7 +31,7 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
       <div className="relative z-50 flex h-fit w-full flex-row items-center justify-between rounded-b-lg bg-black/50 px-4 py-2 group-hover:flex">
         <div className="flex w-full flex-row items-center justify-between gap-4">
           <img
-            className="h-10"
+            className="h-10 min-h-[40px] min-w-[40px]"
             src="/re_dry_flower_green.svg"
             alt="Redry logo"
           />
@@ -42,7 +42,7 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
           <button
             onClick={onDownloadClick}
             id={_id}
-            className="block rounded-lg bg-slate-200 px-1 py-2 hover:bg-slate-50 md:text-xs"
+            className="block min-w-[75px] rounded-lg bg-slate-200 px-2 py-2 hover:bg-slate-50 md:text-xs"
           >
             Download
           </button>
