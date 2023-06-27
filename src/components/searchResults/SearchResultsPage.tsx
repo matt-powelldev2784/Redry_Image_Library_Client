@@ -17,7 +17,7 @@ export const SearchResultsPage = () => {
           <img
             className="m-2 h-6"
             src="/search_dark_green.svg"
-            alt="Redry logo"
+            alt="search icon"
           />
           <h1 className="overflow-y-hidden text-center text-2xl">
             {currentSearchTerm
