@@ -1,10 +1,4 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  getByRole,
-  getByTestId,
-} from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { DropFile } from '../DropFile'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'

@@ -4,7 +4,7 @@ import { ImageDetails } from '../../TS/interfaces'
 
 export interface ImageUploadState {
   isLoading: boolean
-  errors: string[] | null
+  errors: string[] | []
   fileError: string | null
   uploadImageUrl: string | null
   uploadImageThumbnailUrl: string | null
@@ -12,7 +12,7 @@ export interface ImageUploadState {
 
 const initialState: ImageUploadState = {
   isLoading: false,
-  errors: null,
+  errors: [],
   fileError: null,
   uploadImageUrl: null,
   uploadImageThumbnailUrl: null,
@@ -99,7 +99,7 @@ export const imageUploadSlice = createSlice({
       //---------------------------------------------------------------------
       .addCase(addImageToBucket.pending, (state) => {
         state.isLoading = true
-        state.errors = null
+        state.errors = []
         state.uploadImageThumbnailUrl = null
         state.uploadImageUrl = null
       })
@@ -115,7 +115,7 @@ export const imageUploadSlice = createSlice({
       //---------------------------------------------------------------------
       .addCase(addImageDetailsToDb.pending, (state) => {
         state.isLoading = true
-        state.errors = null
+        state.errors = []
       })
       .addCase(addImageDetailsToDb.fulfilled, (state, { payload }) => {
         const { thumbnailPath } = payload.data

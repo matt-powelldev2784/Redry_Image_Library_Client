@@ -18,7 +18,9 @@ interface DropFileProps {
 
 export const DropFile = ({ formik }: DropFileProps) => {
   const dispatch = useAppDispatch()
-  const { fileError } = useAppSelector((state) => state.imageUploadReducer)
+  const fileError = useAppSelector(
+    (state) => state.imageUploadReducer.fileError
+  )
   const [dragActive, setDragActive] = useState(false)
   const selectedFile = formik.values.file?.name
 
