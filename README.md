@@ -1,7 +1,8 @@
 # React Image Library Client
 
 An image library client similar to Unsplash or iStock. Built to compliment back
-end create using node js: Github server code
+end created using NodeJS, Express, MongoDB and AWS.  
+Github server code
 https://github.com/matt-powelldev2784/AWS_EC2_Lamda_Image_Library
 
 The library is user generated. Users can upload images with the uploader name,
