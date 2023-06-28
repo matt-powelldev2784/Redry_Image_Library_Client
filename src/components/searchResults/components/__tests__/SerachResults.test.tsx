@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { SearchResults } from '../SearchResults'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
-import dataReducer from '../../../redux/slice/dataSlice'
+import dataReducer from '../../../../redux/slice/dataSlice'
 
 const mockStore = (initialState: any) =>
   configureStore({

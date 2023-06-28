@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { ImageItem } from '../ImageItem'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
-import dataReducer from '../../../redux/slice/dataSlice'
+import dataReducer from '../../../../redux/slice/dataSlice'
 
 const mockImageData = {
   thumbnailPath: '/test-image.png',

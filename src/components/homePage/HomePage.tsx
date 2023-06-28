@@ -1,7 +1,7 @@
 import { NavBar } from '../componentIndex'
 import { Hero } from './components/Hero'
 import { HomePageText } from './components/HomePageText'
-import { SearchResults } from '../searchResults/SearchResults'
+import { SearchResults } from '../searchResults/components/SearchResults'
 
 export const HomePage = () => {
   return (

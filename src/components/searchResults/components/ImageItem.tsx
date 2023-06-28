@@ -1,5 +1,5 @@
-import { ImageData } from '../../TS/interfaces'
-import { useAppSelector } from '../../redux/hooks/reduxHooks'
+import { ImageData } from '../../../TS/interfaces'
+import { useAppSelector } from '../../../redux/hooks/reduxHooks'
 
 interface ImageItemProps {
   imageData: ImageData
