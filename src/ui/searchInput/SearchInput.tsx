@@ -40,7 +40,7 @@ export const SearchInput = ({
       <input
         id="search-input"
         name="search-input"
-        className={`h-full w-full rounded-xl border-2 border-slate-500 outline-none focus:border-slate-800 ${inputClassNames}`}
+        className={`h-full w-full rounded-lg border-2 border-slate-500 outline-none focus:border-slate-800 ${inputClassNames}`}
         placeholder={placeholderText}
         onKeyDown={dispatchHandleSearch}
         onChange={onInputChange}
