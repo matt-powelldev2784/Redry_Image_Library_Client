@@ -10,6 +10,7 @@ export const apiCall = async (apiOptions: ApiOptions) => {
   }
 
   console.log('BASE_URL', BASE_URL)
+  console.log('BASE_URL', BASE_URL)
   try {
     let response: any
 
