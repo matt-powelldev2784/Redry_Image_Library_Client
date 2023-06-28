@@ -9,8 +9,6 @@ export const apiCall = async (apiOptions: ApiOptions) => {
     BASE_URL = ''
   }
 
-  console.log('BASE_URL', BASE_URL)
-
   try {
     let response: any
 
