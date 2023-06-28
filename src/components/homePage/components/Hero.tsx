@@ -41,7 +41,7 @@ export const Hero = () => {
           </div>
           <div className="mt-2 flex w-full items-center justify-center">
             <Button
-              optionalClasses="relative w-full rounded-xl px-4 py-1 text-xl font-semibold text-darkBlack"
+              optionalClasses="relative w-full px-4 py-1 text-xl font-semibold text-darkBlack"
               buttonText="Search"
               type="submit"
             />
