@@ -13,7 +13,9 @@ export interface DataState {
 
 const initialState: DataState = {
   isLoading: false,
-  imageData: [],
+  imageData: sessionStorage.getItem('imageData')
+    ? JSON.parse(sessionStorage.getItem('imageData') as string)
+    : ([] as ImageData[]),
   totalImagesFound: '',
   totalImagesReturned: '',
   searchTerm: '',
@@ -88,6 +90,7 @@ export const dataSlice = createSlice({
         state.imageData = images
         state.totalImagesReturned = returned
         state.totalImagesFound = total
+        sessionStorage.setItem('imageData', JSON.stringify(images))
       })
       .addCase(handleSearch.rejected, (state, { error }: any) => {
         state.isLoading = false
