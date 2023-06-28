@@ -30,9 +30,9 @@ export const Hero = () => {
       <div className="relative flex h-full w-screen items-center justify-center">
         <form
           onSubmit={handleButtonSearch}
-          className="relative flex flex-col items-center justify-center md:w-[500px]"
+          className="relative flex w-9/12 min-w-[300px] flex-col items-center justify-center md:w-[500px]"
         >
-          <div className="flex w-[90%] items-center justify-center ">
+          <div className="flex w-full items-center justify-center">
             <SearchInput
               wrapperClassNames=""
               inputClassNames="px-3 py-2 text-center text-base"
@@ -41,7 +41,7 @@ export const Hero = () => {
           </div>
           <div className="mt-2 flex w-full items-center justify-center">
             <Button
-              optionalClasses="relative w-[90%] rounded-xl px-4 py-1 text-xl font-semibold text-darkBlack"
+              optionalClasses="relative w-full rounded-xl px-4 py-1 text-xl font-semibold text-darkBlack"
               buttonText="Search"
               type="submit"
             />
