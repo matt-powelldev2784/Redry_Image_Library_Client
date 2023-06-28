@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: npm install
-       - name: Build React app
+      - name: Build React app
         run: npm run build
         env:
           REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
