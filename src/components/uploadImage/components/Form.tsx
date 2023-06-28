@@ -7,7 +7,9 @@ import { useAppSelector } from '../../../redux/hooks/reduxHooks'
 export const Form = () => {
   const formik = useFormikProps()
   const errors = useAppSelector((state) => state.imageUploadReducer.errors)
-  const { isLoading } = useAppSelector((state) => state.imageUploadReducer)
+  const isLoading = useAppSelector(
+    (state) => state.imageUploadReducer.isLoading
+  )
 
   const errorsJSX = errors?.map((err) => {
     return <p className="text-center text-red-500">Server Error: {err}</p>
