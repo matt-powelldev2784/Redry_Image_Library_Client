@@ -27,7 +27,7 @@ export const SearchResults = ({ randomImages }: SearchResultsProps) => {
   })
 
   return (
-    <div className="flex w-screen flex-col items-center justify-center">
+    <div className="flex w-screen min-w-[320px] flex-col items-center justify-center">
       <Error />
       <Loading />
       <div className="mb-12 mt-6 flex w-full flex-wrap items-center justify-center gap-4 md:mx-4 lg:mx-6 lg:gap-8">

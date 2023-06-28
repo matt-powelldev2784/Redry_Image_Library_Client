@@ -13,7 +13,7 @@ export const SearchResultsPage = () => {
       <NavBar />
       <SearchNav />
       <section className="min-h-screen">
-        <div className="mx-8 mt-4 flex flex-wrap items-center justify-center overflow-hidden">
+        <div className="mx-8 mt-4 flex min-w-[320px] flex-wrap items-center justify-center overflow-hidden">
           <div className="flex w-full flex-row items-center justify-center">
             <img
               className="m-2 h-6"

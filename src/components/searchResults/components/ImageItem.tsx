@@ -20,7 +20,7 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
   const { thumbnailPath, uploadedBy, description, _id } = imageData
 
   return (
-    <article className="group relative flex h-[250px] w-11/12 items-end rounded-xl md:w-5/12 lg:w-[400px] ">
+    <article className="group relative flex h-[250px] w-11/12 min-w-[300px] items-end rounded-xl md:w-5/12 lg:w-[400px] ">
       <div className="absolute z-10 h-full w-full rounded-xl group-hover:bg-radial-black"></div>
       <img
         className="absolute h-full w-full rounded-xl object-cover"
@@ -28,8 +28,8 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
         alt={description}
       />
 
-      <div className="relative z-50 flex h-fit w-full flex-row items-center justify-between rounded-b-lg bg-black/50 px-4 py-2 group-hover:flex">
-        <div className="flex w-full flex-row items-center justify-between gap-4">
+      <div className="relative z-50 flex h-fit w-full min-w-[300px] flex-row items-center justify-between rounded-b-lg bg-black/50 px-4 py-2 group-hover:flex">
+        <div className="flex w-full min-w-[270px] flex-row items-center justify-between gap-2">
           <img
             className="h-10 min-h-[40px] min-w-[40px]"
             src="/re_dry_flower_green.svg"
@@ -42,7 +42,7 @@ export const ImageItem = ({ imageData }: ImageItemProps) => {
           <button
             onClick={onDownloadClick}
             id={_id}
-            className="block min-w-[75px] rounded-lg bg-slate-200 px-2 py-2 hover:bg-slate-50 md:text-xs"
+            className="block min-w-[75px] rounded-lg bg-slate-200 px-2 py-2 text-xs hover:bg-slate-50"
           >
             Download
           </button>
