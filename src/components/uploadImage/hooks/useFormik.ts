@@ -32,7 +32,7 @@ export const useFormikProps = () => {
     }),
     onSubmit: async (values) => {
       const { uploadedBy, description, tags, file } = values
-
+      console.log('clicked---------------------')
       if (file === null) return
 
       const newImage = await dispatch(addImageToBucket(file))

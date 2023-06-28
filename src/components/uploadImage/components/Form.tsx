@@ -7,6 +7,7 @@ import { useAppSelector } from '../../../redux/hooks/reduxHooks'
 export const Form = () => {
   const formik = useFormikProps()
   const errors = useAppSelector((state) => state.imageUploadReducer.errors)
+  const { isLoading } = useAppSelector((state) => state.imageUploadReducer)
 
   const errorsJSX = errors?.map((err) => {
     return <p className="text-center text-red-500">Server Error: {err}</p>
@@ -49,6 +50,7 @@ export const Form = () => {
             type="submit"
             optionalClasses="my-2 mt-4 rounded-xl border-2 border-darkBlack bg-primaryGreen px-4 py-1 text-xl font-semibold text-darkBlack lg:w-[28rem]"
             buttonText="Upload Image"
+            disabled={isLoading}
           />
         </form>
       </div>
