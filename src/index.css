@@ -22,3 +22,8 @@ code {
   overflow-x: hidden;
   /* border: 1px solid blue; */
 }
+
+*:focus-visible {
+  border: 3px solid grey;
+  outline: none;
+}
