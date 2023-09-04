@@ -2,6 +2,7 @@ import { SearchInput, Button } from '../../../ui/ui-index'
 import { useAppDispatch } from '../../../redux/hooks/reduxHooks'
 import { handleSearch, setSearchTerm } from '../../../redux/slice/dataSlice'
 import { useNavigate } from 'react-router-dom'
+import { SearchText } from './SearchText'
 
 export const Hero = () => {
   const dispatch = useAppDispatch()
@@ -27,7 +28,8 @@ export const Hero = () => {
         className="absolute h-full w-full object-cover md:h-[400px]"
       />
 
-      <div className="relative flex h-full w-screen items-center justify-center">
+      <div className="relative flex h-full w-screen flex-col items-center justify-center">
+        <SearchText />
         <form
           onSubmit={handleButtonSearch}
           className="relative flex w-9/12 min-w-[300px] flex-col items-center justify-center md:w-[500px]"
