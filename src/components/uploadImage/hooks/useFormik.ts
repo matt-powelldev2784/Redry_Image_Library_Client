@@ -5,7 +5,7 @@ import {
   addImageToBucket,
   addImageDetailsToDb,
 } from '../../../redux/slice/imageUploadSlice'
-import { getSingleImage } from '../../../redux/slice/dataSlice'
+import { getSingleImage, setSearchTerm } from '../../../redux/slice/dataSlice'
 import { useNavigate } from 'react-router-dom'
 
 export const useFormikProps = () => {
@@ -44,6 +44,7 @@ export const useFormikProps = () => {
       await dispatch(getSingleImage(imageDbId))
 
       if (errors.length === 0) {
+        dispatch(setSearchTerm(tags.split(',')[0]))
         navigate('/search-results')
       }
     },
